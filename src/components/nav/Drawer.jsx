@@ -44,51 +44,68 @@ const Drawer = () => {
         height: "100%",
       }}
     >
-      <div className="mb-2"></div>
-      <i class="bi bi-columns-gap text-3xl p-4"></i>
+      <div
+        style={{
+          marginTop: "0.75rem",
+        }}
+      ></div>
+      <p className="text-center">Menu</p>
       <div className="mb-10"></div>
       <ul className="flex flex-col justify-center items-center">
-        <li></li>
         <li className="my-2"></li>
         <li>
-          <a href="">
-            <i class="bi bi-android2 text-3xl p-4"></i>
+          <a href="" className="tooltip">
+            <i className="bi bi-safe2 text-3xl p-4"></i>
+            <span className="tooltip-text">Accounts</span>
           </a>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="">
-            <i class="bi bi-android2 text-3xl p-4"></i>
+          <a href="" className="tooltip">
+            <i className="bi bi-piggy-bank text-3xl p-4"></i>
+            <span className="tooltip-text">Budgets</span>
           </a>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="">
-            <i class="bi bi-android2 text-3xl p-4"></i>
+          <a href="" className="tooltip">
+            <i className="bi bi-bullseye text-3xl p-4"></i>
+            <span className="tooltip-text">Targets</span>
           </a>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="">
-            <i class="bi bi-android2 text-3xl p-4"></i>
+          <a href="" className="tooltip">
+            <i className="bi bi-box-seam text-3xl p-4"></i>
+            <span className="tooltip-text">Inventory</span>
           </a>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="">
-            <i class="bi bi-android2 text-3xl p-4"></i>
+          <a href="" className="tooltip">
+            <i className="bi bi-people text-3xl p-4"></i>
+            <span className="tooltip-text">Employees</span>
           </a>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="">
-            <i class="bi bi-android2 text-3xl p-4"></i>
+          <a href="" className="tooltip">
+            <i className="bi bi-heart-pulse text-3xl p-4"></i>
+            <span className="tooltip-text">Reports</span>
           </a>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="">
-            <i class="bi bi-android2 text-3xl p-4"></i>
+          <a href="" className="tooltip">
+            <i className="bi bi-robot text-3xl p-4"></i>
+            <span className="tooltip-text">AI</span>
+          </a>
+        </li>
+        <li className="my-2"></li>
+        <li>
+          <a href="" className="tooltip">
+            <i className="bi bi-wrench-adjustable-circle text-3xl p-4"></i>
+            <span className="tooltip-text">Profile</span>
           </a>
         </li>
       </ul>

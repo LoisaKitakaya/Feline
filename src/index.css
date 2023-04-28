@@ -138,3 +138,29 @@ body {
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
   background-color: var(--background-slate-200) !important;
 }
+
+.tooltip {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip:hover .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-text {
+  top: 50%;
+  z-index: 1;
+  opacity: 0;
+  right: 125%;
+  padding: 5px;
+  width: 120px;
+  visibility: hidden;
+  text-align: center;
+  border-radius: 4px;
+  position: absolute;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease-in-out;
+}
