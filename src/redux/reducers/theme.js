@@ -13,6 +13,7 @@ export const darkThemeReducer = createSlice({
   reducers: {
     setDarkTheme: (state) => {
       document.querySelector("body").setAttribute("app-theme", "dark");
+      document.querySelector("nav").setAttribute("app-theme", "dark");
 
       localStorage.setItem("theme", "dark");
       localStorage.setItem("isDark", true);
@@ -22,6 +23,7 @@ export const darkThemeReducer = createSlice({
     },
     setLightTheme: (state) => {
       document.querySelector("body").setAttribute("app-theme", "light");
+      document.querySelector("nav").setAttribute("app-theme", "light");
 
       localStorage.setItem("theme", "light");
       localStorage.setItem("isDark", false);

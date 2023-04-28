@@ -3,20 +3,34 @@ import { createSlice } from "@reduxjs/toolkit";
 export const drawerReducer = createSlice({
   name: "drawer",
   initialState: {
-    menuWidth: "0",
-    menuDisplay: "none",
-    mainContentWidth: "0",
+    menuWidth: localStorage.getItem("menuWidth")
+      ? localStorage.getItem("menuWidth")
+      : "0",
+    menuDisplay: localStorage.getItem("menuDisplay")
+      ? localStorage.getItem("menuDisplay")
+      : "none",
+    mainContentWidth: localStorage.getItem("mainContentWidth")
+      ? localStorage.getItem("mainContentWidth")
+      : "0",
   },
   reducers: {
     openDrawer: (state) => {
-      state.menuWidth = "5%";
-      state.menuDisplay = "block";
-      state.mainContentWidth = "95%";
+      localStorage.setItem("menuWidth", "5%");
+      localStorage.setItem("menuDisplay", "block");
+      localStorage.setItem("mainContentWidth", "95%");
+
+      state.menuWidth = localStorage.getItem("menuWidth");
+      state.menuDisplay = localStorage.getItem("menuDisplay");
+      state.mainContentWidth = localStorage.getItem("mainContentWidth");
     },
     closeDrawer: (state) => {
-      state.menuWidth = "0";
-      state.menuDisplay = "none";
-      state.mainContentWidth = "100%";
+      localStorage.setItem("menuWidth", "0");
+      localStorage.setItem("menuDisplay", "none");
+      localStorage.setItem("mainContentWidth", "100%");
+
+      state.menuWidth = localStorage.getItem("menuWidth");
+      state.menuDisplay = localStorage.getItem("menuDisplay");
+      state.mainContentWidth = localStorage.getItem("mainContentWidth");
     },
   },
 });

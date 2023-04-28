@@ -1,8 +1,37 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { openDrawer, closeDrawer } from "../../redux/reducers/drawer";
 
 const Drawer = () => {
+  const dispatch = useDispatch();
+
   const width = useSelector((state) => state.drawer.menuWidth);
   const display = useSelector((state) => state.drawer.menuDisplay);
+
+  const checkDrawer = () => {
+    if (
+      localStorage.getItem("menuWidth") &&
+      localStorage.getItem("menuDisplay")
+    ) {
+      if (
+        localStorage.getItem("menuWidth") === "5%" &&
+        localStorage.getItem("menuDisplay") === "block"
+      ) {
+        dispatch(openDrawer());
+      } else if (
+        localStorage.getItem("menuWidth") === "0" &&
+        localStorage.getItem("menuDisplay") === "none"
+      ) {
+        dispatch(closeDrawer());
+      }
+    } else {
+      dispatch(openDrawer());
+    }
+  };
+
+  useEffect(() => {
+    checkDrawer();
+  });
 
   return (
     <div

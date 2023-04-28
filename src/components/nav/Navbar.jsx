@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import AppTheme from "../themes/AppTheme";
+import { useDispatch, useSelector } from "react-redux";
 import { openDrawer, closeDrawer } from "../../redux/reducers/drawer";
 
 const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
 
-  const width = useSelector((state) => state.drawer.mainContentWidth)
+  const width = useSelector((state) => state.drawer.mainContentWidth);
 
   const dispatch = useDispatch();
 
@@ -15,6 +15,22 @@ const Navbar = () => {
 
     expanded ? dispatch(openDrawer()) : dispatch(closeDrawer());
   };
+
+  const checkDrawer = () => {
+    if (localStorage.getItem("mainContentWidth")) {
+      if (localStorage.getItem("mainContentWidth") === "95%") {
+        dispatch(openDrawer());
+      } else if (localStorage.getItem("mainContentWidth") === "100%") {
+        dispatch(closeDrawer());
+      }
+    } else {
+      dispatch(openDrawer());
+    }
+  };
+
+  useEffect(() => {
+    checkDrawer();
+  });
 
   return (
     <nav
