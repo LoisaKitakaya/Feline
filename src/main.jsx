@@ -12,14 +12,9 @@ import {
 
 import App from "./App";
 
-// General app styles
 import "./index.css";
-
 import "animate.css";
-
-import "primereact/resources/primereact.min.css";
-import "primereact/resources/themes/lara-dark-teal/theme.css";
-import "primereact/resources/themes/lara-light-teal/theme.css";
+import "react-toggle/style.css"
 
 import store from "./redux/store";
 
