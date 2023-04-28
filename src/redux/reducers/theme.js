@@ -14,6 +14,7 @@ export const darkThemeReducer = createSlice({
     setDarkTheme: (state) => {
       document.querySelector("body").setAttribute("app-theme", "dark");
       document.querySelector("nav").setAttribute("app-theme", "dark");
+      document.querySelector("footer").setAttribute("app-theme", "dark");
 
       const tooltip = document.getElementsByClassName("tooltip-text");
 
@@ -31,6 +32,7 @@ export const darkThemeReducer = createSlice({
     setLightTheme: (state) => {
       document.querySelector("body").setAttribute("app-theme", "light");
       document.querySelector("nav").setAttribute("app-theme", "light");
+      document.querySelector("footer").setAttribute("app-theme", "light");
 
       const tooltip = document.getElementsByClassName("tooltip-text");
 

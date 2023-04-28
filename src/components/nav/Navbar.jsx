@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import AppTheme from "../themes/AppTheme";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { openDrawer, closeDrawer } from "../../redux/reducers/drawer";
 

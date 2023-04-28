@@ -6,7 +6,7 @@ import { openDrawer, closeDrawer } from "./redux/reducers/drawer";
 import Drawer from "./components/nav/Drawer";
 import Footer from "./components/nav/Footer";
 import Navbar from "./components/nav/Navbar";
-import Dashboard from "./pages/Dashboard";
+import Accounts from "./pages/Accounts";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const App = () => {
         <Navbar />
 
         <Routes>
-          <Route path="/" element={<Dashboard />} />
+          <Route path="/" element={<Accounts />} />
         </Routes>
 
         <Footer />
