@@ -21,6 +21,13 @@
   --color-gray-500: #6b7280;
   --color-gray-600: #4b5563;
 
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-950: #030712;
+
   --background-gray-100: #f3f4f6;
   --background-gray-900: #111827;
 
@@ -58,6 +65,26 @@
   font-family: "Comfortaa", cursive !important;
 }
 
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--color-gray-500) !important;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--color-gray-600) !important;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gray-700) !important;
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: var(--color-gray-800) !important;
+}
+
 a,
 p,
 h1,
@@ -89,6 +116,11 @@ body {
 .App,
 .page {
   min-height: 92vh !important;
+  width: 100% !important;
+}
+
+.page {
+  padding: 6rem 1rem 1rem 1rem;
 }
 
 .react-toggle-track {

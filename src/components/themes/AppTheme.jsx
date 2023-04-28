@@ -11,10 +11,8 @@ const AppTheme = () => {
   const toggleTheme = (value) => {
     if (value === true) {
       dispatch(setDarkTheme());
-      setChecked(true);
     } else if (value === false) {
       dispatch(setLightTheme());
-      setChecked(false);
     }
   };
 
