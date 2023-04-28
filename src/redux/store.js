@@ -1,5 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
+import darkThemeReducer from "./reducers/theme";
 
 export default configureStore({
-  reducer: {},
+  reducer: {
+    themes: darkThemeReducer,
+  },
 });

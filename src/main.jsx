@@ -15,11 +15,11 @@ import App from "./App";
 // General app styles
 import "./index.css";
 
-//theme
-import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "animate.css";
 
-//core
 import "primereact/resources/primereact.min.css";
+import "primereact/resources/themes/lara-dark-teal/theme.css";
+import "primereact/resources/themes/lara-light-teal/theme.css";
 
 import store from "./redux/store";
 
