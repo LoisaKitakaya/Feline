@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { openDrawer, closeDrawer } from "./redux/reducers/drawer";
 
@@ -16,6 +17,8 @@ const App = () => {
 
   const width = useSelector((state) => state.drawer.mainContentWidth);
 
+  const notification = useSelector((state) => state.toast);
+
   const checkDrawer = () => {
     if (localStorage.getItem("mainContentWidth")) {
       if (localStorage.getItem("mainContentWidth") === "95%") {
@@ -28,9 +31,30 @@ const App = () => {
     }
   };
 
+  const successToast = (message) => {
+    toast.success(message);
+  };
+
+  const errorToast = (message) => {
+    toast.error(message);
+  };
+
+  const checkNotification = (notification) => {
+    if (notification.type && notification.message) {
+      if (notification.type === "success") {
+        successToast(notification.message);
+      } else if (notification.type === "error") {
+        errorToast(notification.message);
+      }
+    } else {
+      return;
+    }
+  };
+
   useEffect(() => {
     checkDrawer();
-  });
+    checkNotification(notification);
+  }, [notification]);
 
   return (
     <div className="App flex flex-row">
@@ -53,6 +77,8 @@ const App = () => {
         <Footer />
       </div>
       <Drawer />
+
+      <Toaster />
     </div>
   );
 };

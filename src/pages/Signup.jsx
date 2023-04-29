@@ -1,18 +1,33 @@
+import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../assets/schema";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  setNewNotification,
+  clearOldNotification,
+} from "../redux/reducers/toast";
 
 const Signup = () => {
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
   const [createUser, { loading, data, error }] = useMutation(CREATE_USER);
 
   if (data) {
+    dispatch(
+      setNewNotification({
+        type: "success",
+        message: "User created successfully",
+      })
+    );
     navigate("/signin");
   }
 
   if (error) {
-    console.log(`${error.message}`);
+    dispatch(
+      setNewNotification({ type: "error", message: `${error.message}` })
+    );
   }
 
   return (
@@ -27,6 +42,8 @@ const Signup = () => {
           className="px-8"
           onSubmit={(e) => {
             e.preventDefault();
+
+            dispatch(clearOldNotification());
 
             createUser({
               variables: {

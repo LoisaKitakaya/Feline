@@ -3,6 +3,10 @@ import { useMutation } from "@apollo/client";
 import { signIn } from "../redux/reducers/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { AUTHENTICATE_USER } from "../assets/schema";
+import {
+  setNewNotification,
+  clearOldNotification,
+} from "../redux/reducers/toast";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -12,12 +16,17 @@ const Signin = () => {
   const [tokenAuth, { loading, data, error }] = useMutation(AUTHENTICATE_USER);
 
   if (data) {
+    dispatch(
+      setNewNotification({ type: "success", message: "Login successful" })
+    );
     dispatch(signIn({ token: data.tokenAuth.token }));
     navigate("/");
   }
 
   if (error) {
-    console.log(`${error.message}`);
+    dispatch(
+      setNewNotification({ type: "error", message: `${error.message}` })
+    );
   }
 
   return (
@@ -32,6 +41,8 @@ const Signin = () => {
           className="px-8"
           onSubmit={(e) => {
             e.preventDefault();
+
+            dispatch(clearOldNotification());
 
             tokenAuth({
               variables: {
