@@ -139,6 +139,8 @@ body {
   background-color: var(--background-slate-200) !important;
 }
 
+/* tooltip styling */
+
 .tooltip {
   cursor: pointer;
   position: relative;
@@ -163,4 +165,25 @@ body {
   position: absolute;
   transform: translateY(-50%);
   transition: opacity 0.3s ease-in-out;
+}
+
+/* spinner animation */
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #333;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

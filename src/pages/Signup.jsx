@@ -7,11 +7,13 @@ const Signup = () => {
 
   const [createUser, { loading, data, error }] = useMutation(CREATE_USER);
 
-  if (data) return navigate("/signin");
+  if (data) {
+    navigate("/signin");
+  }
 
-  if (loading) return "Submitting...";
-
-  if (error) return `Submission error! ${error.message}`;
+  if (error) {
+    console.log(`${error.message}`);
+  }
 
   return (
     <div className="page">
@@ -120,7 +122,15 @@ const Signup = () => {
               type="submit"
               className="w-full rounded-md border py-2 px-4"
             >
-              Submit
+              {loading ? (
+                <div className="flex justify-start items-center mx-auto w-fit">
+                  <div className="spinner"></div>
+                  <div className="mx-1"></div>
+                  <span className="font-extra-thin">Processing...</span>
+                </div>
+              ) : (
+                <span>Submit</span>
+              )}
             </button>
           </div>
         </form>

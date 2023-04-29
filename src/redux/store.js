@@ -5,8 +5,8 @@ import authReducer from "./reducers/auth";
 
 export default configureStore({
   reducer: {
-    themes: darkThemeReducer,
-    drawer: drawerReducer,
     auth: authReducer,
+    drawer: drawerReducer,
+    themes: darkThemeReducer,
   },
 });
