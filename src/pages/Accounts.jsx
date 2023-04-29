@@ -1,13 +1,31 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 const Accounts = () => {
+  const navigate = useNavigate();
+
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  const checkAuth = (isLoggedIn) => {
+    if (isLoggedIn) {
+      return;
+    } else {
+      navigate("/signin");
+    }
+  };
+
+  useEffect(() => {
+    checkAuth(isLoggedIn);
+  }, [isLoggedIn]);
+
   return (
     <div className="page">
       <div className="mb-4">
         <div className="flex justify-between items-center">
           <h4 className="text-2xl font-semibold">Accounts</h4>
           <button className="rounded-md border py-2 px-4">
-            <i class="bi bi-plus-lg"></i> New Account
+            <i className="bi bi-plus-lg"></i> New Account
           </button>
         </div>
         <p className="text-lg font-thin">

@@ -1,6 +1,25 @@
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useMutation } from "@apollo/client";
+import { signIn } from "../redux/reducers/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { AUTHENTICATE_USER } from "../assets/schema";
 
 const Signin = () => {
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const [tokenAuth, { loading, data, error }] = useMutation(AUTHENTICATE_USER);
+
+  if (data) {
+    dispatch(signIn(data.tokenAuth.token));
+    navigate("/");
+  }
+
+  if (loading) return "Submitting...";
+
+  if (error) return `Submission error! ${error.message}`;
+
   return (
     <div className="page">
       <div
@@ -9,7 +28,21 @@ const Signin = () => {
           width: "40%",
         }}
       >
-        <form className="px-8">
+        <form
+          className="px-8"
+          onSubmit={(e) => {
+            e.preventDefault();
+
+            tokenAuth({
+              variables: {
+                username: e.target.email.value,
+                password: e.target.password.value,
+              },
+            });
+
+            e.target.reset;
+          }}
+        >
           <p className="text-lg text-center mb-2">Sign in to your account</p>
           <div className="mb-4">
             <label className="block">

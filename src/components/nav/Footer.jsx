@@ -44,11 +44,11 @@ const Footer = () => {
       </div>
       <div className="flex justify-end items-center">
         <p>&copy; 2023 Finance Fluent. All rights reserver.</p>
-        <i class="bi bi-dot mx-2"></i>
+        <i className="bi bi-dot mx-2"></i>
         <a href="">T&C</a>
-        <i class="bi bi-dot mx-2"></i>
+        <i className="bi bi-dot mx-2"></i>
         <a href="">Blog</a>
-        <i class="bi bi-dot mx-2"></i>
+        <i className="bi bi-dot mx-2"></i>
         <a href="">Site Policy</a>
       </div>
     </footer>

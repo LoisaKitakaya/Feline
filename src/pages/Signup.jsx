@@ -1,6 +1,18 @@
-import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { CREATE_USER } from "../assets/schema";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
+
+  const [createUser, { loading, data, error }] = useMutation(CREATE_USER);
+
+  if (data) return navigate("/signin");
+
+  if (loading) return "Submitting...";
+
+  if (error) return `Submission error! ${error.message}`;
+
   return (
     <div className="page">
       <div
@@ -9,7 +21,25 @@ const Signup = () => {
           width: "40%",
         }}
       >
-        <form className="px-8">
+        <form
+          className="px-8"
+          onSubmit={(e) => {
+            e.preventDefault();
+
+            createUser({
+              variables: {
+                email: e.target.email.value,
+                first_name: e.target.first_name.value,
+                last_name: e.target.last_name.value,
+                workspace_name: e.target.workspace_name.value,
+                password: e.target.password.value,
+                password2: e.target.password2.value,
+              },
+            });
+
+            e.target.reset;
+          }}
+        >
           <p className="text-lg text-center mb-2">Create a new account</p>
           <div className="mb-4">
             <label className="block">
