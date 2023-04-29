@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Accounts = () => {
   return (
     <div className="page">
@@ -12,7 +14,7 @@ const Accounts = () => {
           A collection of all your accounts / businesses
         </p>
       </div>
-      <a href="">
+      <Link to="">
         <div className="mb-4 p-4 rounded-md border">
           <h6 className="text-xl font-semibold mb-4">1. KCB Savings Account</h6>
           <div className="flex justify-start items-center">
@@ -33,8 +35,8 @@ const Accounts = () => {
             </span>
           </div>
         </div>
-      </a>
-      <a href="">
+      </Link>
+      <Link to="">
         <div className="mb-4 p-4 rounded-md border">
           <h6 className="text-xl font-semibold mb-4">
             2. Personal Checking Account
@@ -57,8 +59,8 @@ const Accounts = () => {
             </span>
           </div>
         </div>
-      </a>
-      <a href="">
+      </Link>
+      <Link to="">
         <div className="mb-4 p-4 rounded-md border">
           <h6 className="text-xl font-semibold mb-4">3. Retail Shop Account</h6>
           <div className="flex justify-start items-center">
@@ -79,7 +81,7 @@ const Accounts = () => {
             </span>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

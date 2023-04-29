@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { openDrawer, closeDrawer } from "../../redux/reducers/drawer";
 
@@ -54,59 +55,59 @@ const Drawer = () => {
       <ul className="flex flex-col justify-center items-center">
         <li className="my-2"></li>
         <li>
-          <a href="" className="tooltip">
+          <Link to="/" className="tooltip">
             <i className="bi bi-safe2 text-3xl p-4"></i>
             <span className="tooltip-text">Accounts</span>
-          </a>
+          </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="" className="tooltip">
+          <Link to="" className="tooltip">
             <i className="bi bi-piggy-bank text-3xl p-4"></i>
             <span className="tooltip-text">Budgets</span>
-          </a>
+          </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="" className="tooltip">
+          <Link to="" className="tooltip">
             <i className="bi bi-bullseye text-3xl p-4"></i>
             <span className="tooltip-text">Targets</span>
-          </a>
+          </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="" className="tooltip">
+          <Link to="" className="tooltip">
             <i className="bi bi-box-seam text-3xl p-4"></i>
             <span className="tooltip-text">Inventory</span>
-          </a>
+          </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="" className="tooltip">
+          <Link to="" className="tooltip">
             <i className="bi bi-people text-3xl p-4"></i>
             <span className="tooltip-text">Employees</span>
-          </a>
+          </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="" className="tooltip">
+          <Link to="" className="tooltip">
             <i className="bi bi-heart-pulse text-3xl p-4"></i>
             <span className="tooltip-text">Reports</span>
-          </a>
+          </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="" className="tooltip">
+          <Link to="" className="tooltip">
             <i className="bi bi-robot text-3xl p-4"></i>
-            <span className="tooltip-text">AI</span>
-          </a>
+            <span className="tooltip-text">Assistant</span>
+          </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <a href="" className="tooltip">
+          <Link to="" className="tooltip">
             <i className="bi bi-wrench-adjustable-circle text-3xl p-4"></i>
             <span className="tooltip-text">Profile</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

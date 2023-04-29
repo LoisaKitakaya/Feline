@@ -6,7 +6,10 @@ import { openDrawer, closeDrawer } from "./redux/reducers/drawer";
 import Drawer from "./components/nav/Drawer";
 import Footer from "./components/nav/Footer";
 import Navbar from "./components/nav/Navbar";
+
 import Accounts from "./pages/Accounts";
+import Signup from "./pages/Signup";
+import Signin from "./pages/Signin";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +46,8 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Accounts />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
         </Routes>
 
         <Footer />

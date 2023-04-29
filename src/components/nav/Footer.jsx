@@ -47,6 +47,8 @@ const Footer = () => {
         <i class="bi bi-dot mx-2"></i>
         <a href="">T&C</a>
         <i class="bi bi-dot mx-2"></i>
+        <a href="">Blog</a>
+        <i class="bi bi-dot mx-2"></i>
         <a href="">Site Policy</a>
       </div>
     </footer>

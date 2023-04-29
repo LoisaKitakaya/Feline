@@ -45,12 +45,14 @@ const Navbar = () => {
       <div className="flex justify-end items-center">
         <AppTheme />
         <div className="mx-2"></div>
-        <p
-          className="text-lg cursor-pointer border py-2 px-4 rounded-md"
+        <button className="border py-2 px-4 rounded-md">Log out</button>
+        <div className="mx-2"></div>
+        <button
+          className="border py-2 px-4 rounded-md"
           onClick={handleToggleDrawer}
         >
           <i className="bi bi-list"></i>
-        </p>
+        </button>
       </div>
     </nav>
   );
