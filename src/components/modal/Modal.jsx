@@ -32,7 +32,7 @@ const Modal = ({ visible, setVisible, title, element }) => {
             <div className="flex justify-between items-center mb-2 sticky top-0 modal-header">
               <p className="text-lg text-center">{title}</p>
               <button className="p-2" onClick={() => setVisible(false)}>
-                <i class="bi bi-x-lg text-xl"></i>
+                <i className="bi bi-x-lg text-xl"></i>
               </button>
             </div>
             {element}

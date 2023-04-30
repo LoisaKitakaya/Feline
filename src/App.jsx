@@ -8,9 +8,10 @@ import Drawer from "./components/nav/Drawer";
 import Footer from "./components/nav/Footer";
 import Navbar from "./components/nav/Navbar";
 
-import Accounts from "./pages/Accounts";
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
+import Account from "./pages/Account";
+import Accounts from "./pages/Accounts";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -67,6 +68,7 @@ const App = () => {
           <Route path="/" element={<Accounts />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
+          <Route path="/account/:id" element={<Account />} />
         </Routes>
         {/* app content */}
 

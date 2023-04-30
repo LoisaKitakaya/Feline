@@ -100,16 +100,16 @@ const NewAccount = () => {
       <p className="mb-4">Tips to consider:</p>
       <ul>
         <li className="mb-2">
-          <i class="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit amet.
+          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit amet.
         </li>
         <li className="mb-2">
-          <i class="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit amet.
+          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit amet.
         </li>
         <li className="mb-2">
-          <i class="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit amet.
+          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit amet.
         </li>
         <li className="mb-2">
-          <i class="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit amet.
+          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit amet.
         </li>
       </ul>
     </form>

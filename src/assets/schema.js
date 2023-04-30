@@ -15,6 +15,18 @@ export const GET_ALL_ACCOUNTS = gql`
   }
 `;
 
+export const GET_ACCOUNT = gql`
+  query ($id: ID!) {
+    getAccount(id: $id) {
+      account_name
+      account_type
+      currency_code
+      account_balance
+      created_at
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`

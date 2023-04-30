@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AllAccounts from "../components/account/AllAccounts";
 import Modal from "../components/modal/Modal";
 import NewAccount from "../components/account/NewAccount";
+import AllAccounts from "../components/account/AllAccounts";
 
 const Accounts = () => {
   const navigate = useNavigate();

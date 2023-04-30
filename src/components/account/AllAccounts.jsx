@@ -11,10 +11,6 @@ const AllAccounts = () => {
 
   const { loading, data, error } = useQuery(GET_ALL_ACCOUNTS);
 
-  if (data) {
-    console.log(data);
-  }
-
   if (loading) return <ComponentSpinner />;
 
   if (error) {
@@ -27,12 +23,12 @@ const AllAccounts = () => {
     <div>
       {data.getAllAccounts.length !== 0 ? (
         <>
-          {data.getAllAccounts.map((account) => {
+          {data.getAllAccounts.map((account, index) => {
             const accountElement = (
               <Link to={`/account/${account.id}`} key={account.id}>
                 <div className="mb-4 p-4 rounded-md border">
                   <h6 className="text-xl font-semibold mb-4">
-                    1. {account.account_name}
+                    {index + 1}. {account.account_name}
                   </h6>
                   <div className="flex justify-start items-center">
                     <span className="text-sm">
