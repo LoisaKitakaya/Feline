@@ -31,20 +31,12 @@ const App = () => {
     }
   };
 
-  const successToast = (message) => {
-    toast.success(message);
-  };
-
-  const errorToast = (message) => {
-    toast.error(message);
-  };
-
   const checkNotification = (notification) => {
     if (notification.type && notification.message) {
       if (notification.type === "success") {
-        successToast(notification.message);
+        toast.success(notification.message);
       } else if (notification.type === "error") {
-        errorToast(notification.message);
+        toast.error(notification.message);
       }
     } else {
       return;

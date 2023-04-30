@@ -2,7 +2,18 @@ import { gql } from "@apollo/client";
 
 // Queries
 
-
+export const GET_ALL_ACCOUNTS = gql`
+  query {
+    getAllAccounts {
+      id
+      account_name
+      account_type
+      currency_code
+      account_balance
+      created_at
+    }
+  }
+`;
 
 // Mutations
 
@@ -23,12 +34,7 @@ export const CREATE_USER = gql`
       password: $password
       password2: $password2
     ) {
-      first_name
-      last_name
-      email
-      username
-      is_active
-      is_staff
+      id
     }
   }
 `;
@@ -37,8 +43,6 @@ export const AUTHENTICATE_USER = gql`
   mutation ($username: String!, $password: String!) {
     tokenAuth(username: $username, password: $password) {
       token
-      refresh_token
-      payload
     }
   }
 `;

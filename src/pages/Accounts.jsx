@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import AllAccounts from "../components/accounts/AllAccounts";
 
 const Accounts = () => {
   const navigate = useNavigate();
@@ -32,74 +33,7 @@ const Accounts = () => {
           A collection of all your accounts / businesses
         </p>
       </div>
-      <Link to="">
-        <div className="mb-4 p-4 rounded-md border">
-          <h6 className="text-xl font-semibold mb-4">1. KCB Savings Account</h6>
-          <div className="flex justify-start items-center">
-            <span className="text-sm">
-              <span className="font-semibold">Balance:</span> 10000
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Currency:</span> USD
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Created:</span> One month ago
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Updated:</span> 5 hours ago
-            </span>
-          </div>
-        </div>
-      </Link>
-      <Link to="">
-        <div className="mb-4 p-4 rounded-md border">
-          <h6 className="text-xl font-semibold mb-4">
-            2. Personal Checking Account
-          </h6>
-          <div className="flex justify-start items-center">
-            <span className="text-sm">
-              <span className="font-semibold">Balance:</span> 10000
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Currency:</span> USD
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Created:</span> One month ago
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Updated:</span> 5 hours ago
-            </span>
-          </div>
-        </div>
-      </Link>
-      <Link to="">
-        <div className="mb-4 p-4 rounded-md border">
-          <h6 className="text-xl font-semibold mb-4">3. Retail Shop Account</h6>
-          <div className="flex justify-start items-center">
-            <span className="text-sm">
-              <span className="font-semibold">Balance:</span> 10000
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Currency:</span> USD
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Created:</span> One month ago
-            </span>
-            <div className="mx-2"></div>
-            <span className="text-sm">
-              <span className="font-semibold">Updated:</span> 5 hours ago
-            </span>
-          </div>
-        </div>
-      </Link>
+      <AllAccounts />
     </div>
   );
 };

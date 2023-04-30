@@ -6,11 +6,12 @@ import {
   setNewNotification,
   clearOldNotification,
 } from "../redux/reducers/toast";
+import ButtonSpinner from "../components/spinner/ButtonSpinner";
 
 const Signup = () => {
-  const navigate = useNavigate();
-
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const [createUser, { loading, data, error }] = useMutation(CREATE_USER);
 
@@ -139,15 +140,7 @@ const Signup = () => {
               type="submit"
               className="w-full rounded-md border py-2 px-4"
             >
-              {loading ? (
-                <div className="flex justify-start items-center mx-auto w-fit">
-                  <div className="spinner"></div>
-                  <div className="mx-1"></div>
-                  <span className="font-extra-thin">Processing...</span>
-                </div>
-              ) : (
-                <span>Submit</span>
-              )}
+              {loading ? <ButtonSpinner /> : <span>Submit</span>}
             </button>
           </div>
         </form>
