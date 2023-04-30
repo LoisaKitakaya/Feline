@@ -18,6 +18,7 @@ export const GET_ALL_ACCOUNTS = gql`
 export const GET_ACCOUNT = gql`
   query ($id: ID!) {
     getAccount(id: $id) {
+      id
       account_name
       account_type
       currency_code
@@ -74,5 +75,31 @@ export const CREATE_ACCOUNT = gql`
     ) {
       id
     }
+  }
+`;
+
+export const UPDATE_ACCOUNT = gql`
+  mutation (
+    $id: ID!
+    $account_name: String!
+    $account_type: String!
+    $account_balance: Float!
+    $currency_code: String!
+  ) {
+    updateAccount(
+      id: $id
+      account_name: $account_name
+      account_type: $account_type
+      account_balance: $account_balance
+      currency_code: $currency_code
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_ACCOUNT = gql`
+  mutation ($id: ID!) {
+    deleteAccount(id: $id)
   }
 `;

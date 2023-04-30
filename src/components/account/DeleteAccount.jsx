@@ -1,5 +1,88 @@
-const DeleteAccount = () => {
-  return null;
+import { useDispatch } from "react-redux";
+import { useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
+import ButtonSpinner from "../spinner/ButtonSpinner";
+import { GET_ALL_ACCOUNTS, DELETE_ACCOUNT } from "../../assets/schema";
+import {
+  setNewNotification,
+  clearOldNotification,
+} from "../../redux/reducers/toast";
+
+const DeleteAccount = ({ id, account_name }) => {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const [deleteAccount, { loading, data, error }] = useMutation(
+    DELETE_ACCOUNT,
+    { refetchQueries: [{ query: GET_ALL_ACCOUNTS }] }
+  );
+
+  if (data) {
+    dispatch(
+      setNewNotification({
+        type: "success",
+        message: "Account deleted successfully",
+      })
+    );
+    navigate("/");
+  }
+
+  if (error) {
+    dispatch(
+      setNewNotification({ type: "error", message: `${error.message}` })
+    );
+  }
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+
+        dispatch(clearOldNotification());
+
+        deleteAccount({
+          variables: {
+            id: id,
+          },
+        });
+
+        e.target.reset();
+      }}
+    >
+      <div className="mb-4">
+        <p className="text-xl font-semibold">
+          Are you sure you want to delete:
+          <br /> {account_name}
+        </p>
+      </div>
+      <div className="mt-8 mb-4">
+        <button type="submit" className="w-full rounded-md border py-2 px-4">
+          {loading ? <ButtonSpinner /> : <span>Delete</span>}
+        </button>
+      </div>
+      <hr className="mb-4" />
+      <p className="mb-4">Tips to consider:</p>
+      <ul>
+        <li className="mb-2">
+          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
+          amet.
+        </li>
+        <li className="mb-2">
+          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
+          amet.
+        </li>
+        <li className="mb-2">
+          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
+          amet.
+        </li>
+        <li className="mb-2">
+          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
+          amet.
+        </li>
+      </ul>
+    </form>
+  );
 };
 
 export default DeleteAccount;

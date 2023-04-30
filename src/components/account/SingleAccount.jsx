@@ -87,13 +87,18 @@ const SingleAccount = () => {
             visible={showUpdate}
             setVisible={setShowUpdate}
             title={"Update Account"}
-            element={<UpdateAccount />}
+            element={<UpdateAccount id={data.getAccount.id} />}
           />
           <Modal
             visible={confirmDelete}
             setVisible={setConfirmDelete}
             title={"Delete Account"}
-            element={<DeleteAccount />}
+            element={
+              <DeleteAccount
+                id={data.getAccount.id}
+                account_name={data.getAccount.account_name}
+              />
+            }
           />
           {/* modals */}
         </>
