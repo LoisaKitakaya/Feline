@@ -12,9 +12,9 @@ import {
 
 import App from "./App";
 
-import "./index.css";
 import "animate.css";
-import "react-toggle/style.css"
+import "./css/index.css";
+import "react-toggle/style.css";
 
 import store from "./redux/store";
 
