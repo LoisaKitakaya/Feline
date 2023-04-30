@@ -52,7 +52,7 @@ const Signin = () => {
               },
             });
 
-            e.target.reset;
+            e.target.reset();
           }}
         >
           <p className="text-lg text-center mb-2">Sign in to your account</p>

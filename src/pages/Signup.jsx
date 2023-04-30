@@ -57,7 +57,7 @@ const Signup = () => {
               },
             });
 
-            e.target.reset;
+            e.target.reset();
           }}
         >
           <p className="text-lg text-center mb-2">Create a new account</p>

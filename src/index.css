@@ -73,16 +73,23 @@ html::-webkit-scrollbar-track {
   background: var(--color-gray-500) !important;
 }
 
-html::-webkit-scrollbar-thumb {
+html::-webkit-scrollbar-thumb,
+.modal::-webkit-scrollbar-thumb {
   background: var(--color-gray-600) !important;
 }
 
-html::-webkit-scrollbar-thumb:hover {
+html::-webkit-scrollbar-thumb:hover,
+.modal::-webkit-scrollbar-thumb:hover {
   background: var(--color-gray-700) !important;
 }
 
-html::-webkit-scrollbar-thumb:active {
+html::-webkit-scrollbar-thumb:active,
+.modal::-webkit-scrollbar-thumb:active {
   background: var(--color-gray-800) !important;
+}
+
+.modal::-webkit-scrollbar {
+  width: 3px;
 }
 
 a,
@@ -101,6 +108,13 @@ body {
   transition: 300ms ease-in-out;
   background-color: var(--background-gray-100);
   color: var(--foreground-gray-900);
+}
+
+input,
+select,
+textarea {
+  background-color: var(--background-gray-100) !important;
+  color: var(--foreground-gray-900) !important;
 }
 
 [app-theme="light"] {
@@ -192,7 +206,6 @@ body {
   top: 2rem;
   left: 30%;
   width: 40%;
-  z-index: 10;
   bottom: 2rem;
   position: absolute;
 }
@@ -202,8 +215,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   width: 100%;
-  z-index: 10;
   height: 100%;
   position: fixed;
   background-color: #111827e0;

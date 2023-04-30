@@ -46,3 +46,21 @@ export const AUTHENTICATE_USER = gql`
     }
   }
 `;
+
+export const CREATE_ACCOUNT = gql`
+  mutation (
+    $account_name: String!
+    $account_type: String!
+    $account_balance: Float!
+    $currency_code: String!
+  ) {
+    createAccount(
+      account_name: $account_name
+      account_type: $account_type
+      account_balance: $account_balance
+      currency_code: $currency_code
+    ) {
+      id
+    }
+  }
+`;
