@@ -58,19 +58,29 @@ const App = () => {
           height: "100%",
         }}
       >
+        {/* navbar */}
         <Navbar />
+        {/* navbar */}
 
+        {/* app content */}
         <Routes>
           <Route path="/" element={<Accounts />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
         </Routes>
+        {/* app content */}
 
+        {/* footer */}
         <Footer />
+        {/* footer */}
       </div>
+      {/* app drawer */}
       <Drawer />
+      {/* app drawer */}
 
+      {/* app notifications */}
       <Toaster />
+      {/* app notifications */}
     </div>
   );
 };

@@ -16,6 +16,20 @@ export const darkThemeReducer = createSlice({
       document.querySelector("nav").setAttribute("app-theme", "dark");
       document.querySelector("footer").setAttribute("app-theme", "dark");
 
+      const modalHeader = document.getElementsByClassName("modal-header");
+
+      for (let i = 0; i < modalHeader.length; i++) {
+        let element = modalHeader.item(i);
+        element.setAttribute("app-theme", "dark");
+      }
+
+      const modal = document.getElementsByClassName("modal");
+
+      for (let i = 0; i < modal.length; i++) {
+        let element = modal.item(i);
+        element.setAttribute("app-theme", "dark");
+      }
+
       const tooltip = document.getElementsByClassName("tooltip-text");
 
       for (let i = 0; i < tooltip.length; i++) {
@@ -33,6 +47,20 @@ export const darkThemeReducer = createSlice({
       document.querySelector("body").setAttribute("app-theme", "light");
       document.querySelector("nav").setAttribute("app-theme", "light");
       document.querySelector("footer").setAttribute("app-theme", "light");
+
+      const modalHeader = document.getElementsByClassName("modal-header");
+
+      for (let i = 0; i < modalHeader.length; i++) {
+        let element = modalHeader.item(i);
+        element.setAttribute("app-theme", "light");
+      }
+
+      const modal = document.getElementsByClassName("modal");
+
+      for (let i = 0; i < modal.length; i++) {
+        let element = modal.item(i);
+        element.setAttribute("app-theme", "light");
+      }
 
       const tooltip = document.getElementsByClassName("tooltip-text");
 

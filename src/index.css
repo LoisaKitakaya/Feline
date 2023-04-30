@@ -187,3 +187,24 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.modal {
+  top: 2rem;
+  left: 30%;
+  width: 40%;
+  z-index: 10;
+  bottom: 2rem;
+  position: absolute;
+}
+
+.modal-backdrop {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  height: 100%;
+  position: fixed;
+  background-color: #111827e0;
+}
