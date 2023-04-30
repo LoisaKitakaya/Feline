@@ -12,6 +12,7 @@ import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
 import Account from "./pages/Account";
 import Accounts from "./pages/Accounts";
+import Budgets from "./pages/Budgets";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -69,6 +70,7 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/account/:id" element={<Account />} />
+          <Route path="/budgets" element={<Budgets />} />
         </Routes>
         {/* app content */}
 

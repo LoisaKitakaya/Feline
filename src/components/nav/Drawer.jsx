@@ -62,49 +62,49 @@ const Drawer = () => {
         </li>
         <li className="my-2"></li>
         <li>
-          <Link to="" className="tooltip">
+          <Link to="/budgets" className="tooltip">
             <i className="bi bi-piggy-bank text-3xl p-4"></i>
             <span className="tooltip-text">Budgets</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <Link to="" className="tooltip">
+          <Link to="/targets" className="tooltip">
             <i className="bi bi-bullseye text-3xl p-4"></i>
             <span className="tooltip-text">Targets</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <Link to="" className="tooltip">
+          <Link to="/inventory" className="tooltip">
             <i className="bi bi-box-seam text-3xl p-4"></i>
             <span className="tooltip-text">Inventory</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <Link to="" className="tooltip">
+          <Link to="/employees" className="tooltip">
             <i className="bi bi-people text-3xl p-4"></i>
             <span className="tooltip-text">Employees</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <Link to="" className="tooltip">
+          <Link to="/reports" className="tooltip">
             <i className="bi bi-heart-pulse text-3xl p-4"></i>
             <span className="tooltip-text">Reports</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <Link to="" className="tooltip">
+          <Link to="/assistant" className="tooltip">
             <i className="bi bi-robot text-3xl p-4"></i>
             <span className="tooltip-text">Assistant</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
-          <Link to="" className="tooltip">
+          <Link to="/profile" className="tooltip">
             <i className="bi bi-wrench-adjustable-circle text-3xl p-4"></i>
             <span className="tooltip-text">Profile</span>
           </Link>

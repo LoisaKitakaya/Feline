@@ -28,6 +28,24 @@ export const GET_ACCOUNT = gql`
   }
 `;
 
+export const GET_ALL_BUDGETS = gql`
+  query {
+    getAllBudgets {
+      id
+      budget_name
+      budget_is_active
+      budget_amount
+      account {
+        account_name
+      }
+      category {
+        category_name
+      }
+      created_at
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`
@@ -101,5 +119,27 @@ export const UPDATE_ACCOUNT = gql`
 export const DELETE_ACCOUNT = gql`
   mutation ($id: ID!) {
     deleteAccount(id: $id)
+  }
+`;
+
+export const CREATE_BUDGET = gql`
+  mutation (
+    $account_id: ID!
+    $budget_name: String!
+    $budget_description: String!
+    $budget_amount: Float!
+    $category: String!
+    $sub_category: String!
+  ) {
+    createBudget(
+      account_id: $account_id
+      budget_name: $budget_name
+      budget_description: $budget_description
+      budget_amount: $budget_amount
+      category: $category
+      sub_category: $sub_category
+    ) {
+      id
+    }
   }
 `;
