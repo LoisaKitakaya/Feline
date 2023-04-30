@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AllAccounts from "../components/accounts/AllAccounts";
+import AllAccounts from "../components/account/AllAccounts";
 
 const Accounts = () => {
   const navigate = useNavigate();
