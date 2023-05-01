@@ -102,6 +102,28 @@ export const GET_ALL_BUDGETS = gql`
   }
 `;
 
+export const GET_BUDGET = gql`
+  query ($id: ID!) {
+    getBudget(id: $id) {
+      id
+      budget_name
+      budget_description
+      budget_is_active
+      budget_amount
+      account {
+        account_name
+      }
+      category {
+        category_name
+      }
+      sub_category {
+        category_name
+      }
+      created_at
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`

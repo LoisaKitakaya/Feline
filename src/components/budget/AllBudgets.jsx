@@ -42,7 +42,7 @@ const AllBudgets = () => {
                     </span>
                     <div className="mx-2"></div>
                     <span className="text-sm">
-                      <span className="font-semibold">Balance:</span>{" "}
+                      <span className="font-semibold">Amount:</span>{" "}
                       {budget.budget_amount.toLocaleString()}
                     </span>
                     <div className="mx-2"></div>
