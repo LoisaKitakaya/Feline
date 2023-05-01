@@ -56,21 +56,21 @@ const Drawer = () => {
         <li className="my-2"></li>
         <li>
           <Link to="/" className="tooltip">
-            <i className="bi bi-safe2 text-3xl p-4"></i>
+            <i className="bi bi-safe text-3xl p-4"></i>
             <span className="tooltip-text">Accounts</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/budgets" className="tooltip">
-            <i className="bi bi-piggy-bank text-3xl p-4"></i>
+            <i className="bi bi-coin text-3xl p-4"></i>
             <span className="tooltip-text">Budgets</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/targets" className="tooltip">
-            <i className="bi bi-bullseye text-3xl p-4"></i>
+            <i className="bi bi-cash-coin text-3xl p-4"></i>
             <span className="tooltip-text">Targets</span>
           </Link>
         </li>

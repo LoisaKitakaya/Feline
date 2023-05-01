@@ -14,6 +14,8 @@ import Account from "./pages/Account";
 import Accounts from "./pages/Accounts";
 import Budgets from "./pages/Budgets";
 import Budget from "./pages/Budget";
+import Targets from "./pages/Targets";
+import Target from "./pages/Target";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -73,6 +75,8 @@ const App = () => {
           <Route path="/account/:id" element={<Account />} />
           <Route path="/budgets" element={<Budgets />} />
           <Route path="/budget/:id" element={<Budget />} />
+          <Route path="/targets" element={<Targets />} />
+          <Route path="/target/:id" element={<Target />} />
         </Routes>
         {/* app content */}
 

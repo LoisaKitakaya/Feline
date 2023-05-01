@@ -4,28 +4,28 @@ import { useMutation } from "@apollo/client";
 import AccountList from "../recurring/AccountList";
 import ButtonSpinner from "../spinner/ButtonSpinner";
 import TransactionCategory from "../recurring/TransactionCategory";
-import { CREATE_BUDGET, GET_ALL_BUDGETS } from "../../assets/schema";
+import { CREATE_TARGET, GET_ALL_TARGETS } from "../../assets/schema";
 import TransactionSubCategory from "../recurring/TransactionSubCategory";
 import {
   setNewNotification,
   clearOldNotification,
 } from "../../redux/reducers/toast";
 
-const NewBudget = () => {
+const NewTarget = () => {
   const dispatch = useDispatch();
 
   const [parent, setParent] = useState(null);
   const [child, setChild] = useState(null);
 
-  const [createBudget, { loading, data, error }] = useMutation(CREATE_BUDGET, {
-    refetchQueries: [{ query: GET_ALL_BUDGETS }],
+  const [createTarget, { loading, data, error }] = useMutation(CREATE_TARGET, {
+    refetchQueries: [{ query: GET_ALL_TARGETS }],
   });
 
   if (data) {
     dispatch(
       setNewNotification({
         type: "success",
-        message: "Budget created successfully",
+        message: "Target created successfully",
       })
     );
   }
@@ -43,12 +43,12 @@ const NewBudget = () => {
 
         dispatch(clearOldNotification());
 
-        createBudget({
+        createTarget({
           variables: {
             account_id: e.target.account_id.value,
-            budget_name: e.target.budget_name.value,
-            budget_description: e.target.budget_description.value,
-            budget_amount: parseFloat(e.target.budget_amount.value),
+            target_name: e.target.target_name.value,
+            target_description: e.target.target_description.value,
+            target_amount: parseFloat(e.target.target_amount.value),
             category: parent,
             sub_category: child,
           },
@@ -60,31 +60,31 @@ const NewBudget = () => {
       <AccountList />
       <div className="mb-4">
         <label className="block">
-          <span>Budget title</span>
+          <span>Target title</span>
           <input
             type="text"
-            name="budget_name"
+            name="target_name"
             className="mt-1 block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
         </label>
       </div>
       <div className="mb-4">
         <label className="block">
-          <span>Budget description</span>
+          <span>Target description</span>
           <textarea
             cols="30"
             rows="10"
-            name="budget_description"
+            name="target_description"
             className="mt-1 block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           ></textarea>
         </label>
       </div>
       <div className="mb-4">
         <label className="block">
-          <span>Budget amount</span>
+          <span>Target amount</span>
           <input
             type="number"
-            name="budget_amount"
+            name="target_amount"
             className="mt-1 block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
         </label>
@@ -100,4 +100,4 @@ const NewBudget = () => {
   );
 };
 
-export default NewBudget;
+export default NewTarget;

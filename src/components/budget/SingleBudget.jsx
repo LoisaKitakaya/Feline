@@ -105,13 +105,13 @@ const SingleBudget = () => {
           <Modal
             visible={showUpdate}
             setVisible={setShowUpdate}
-            title={"Update Account"}
+            title={"Update Budget"}
             element={<UpdateBudget id={data.getBudget.id} />}
           />
           <Modal
             visible={confirmDelete}
             setVisible={setConfirmDelete}
-            title={"Delete Account"}
+            title={"Delete Budget"}
             element={
               <DeleteBudget
                 id={data.getBudget.id}
