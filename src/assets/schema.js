@@ -311,3 +311,31 @@ export const CREATE_TARGET = gql`
     }
   }
 `;
+
+export const UPDATE_TARGET = gql`
+  mutation (
+    $id: ID!
+    $target_name: String!
+    $target_description: String!
+    $target_amount: Float!
+    $category: String!
+    $sub_category: String!
+  ) {
+    updateTarget(
+      id: $id
+      target_name: $target_name
+      target_description: $target_description
+      target_amount: $target_amount
+      category: $category
+      sub_category: $sub_category
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_TARGET = gql`
+  mutation ($id: ID!) {
+    deleteTarget(id: $id)
+  }
+`;
