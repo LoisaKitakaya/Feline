@@ -53,7 +53,7 @@ const DeleteAccount = ({ id, account_name }) => {
       <div className="mb-4">
         <p className="text-xl font-semibold">
           Are you sure you want to delete:
-          <br /> {account_name}
+          <br /> <br /> {account_name}
         </p>
       </div>
       <div className="mt-8 mb-4">
@@ -61,26 +61,6 @@ const DeleteAccount = ({ id, account_name }) => {
           {loading ? <ButtonSpinner /> : <span>Delete</span>}
         </button>
       </div>
-      <hr className="mb-4" />
-      <p className="mb-4">Tips to consider:</p>
-      <ul>
-        <li className="mb-2">
-          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
-          amet.
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
-          amet.
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
-          amet.
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
-          amet.
-        </li>
-      </ul>
     </form>
   );
 };

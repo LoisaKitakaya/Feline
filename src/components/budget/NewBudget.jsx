@@ -96,26 +96,6 @@ const NewBudget = () => {
           {loading ? <ButtonSpinner /> : <span>Submit</span>}
         </button>
       </div>
-      <hr className="mb-4" />
-      <p className="mb-4">Tips to consider:</p>
-      <ul>
-        <li className="mb-2">
-          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
-          amet.
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
-          amet.
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
-          amet.
-        </li>
-        <li className="mb-2">
-          <i className="bi bi-arrow-right-short"></i> Lorem ipsum dolor sit
-          amet.
-        </li>
-      </ul>
     </form>
   );
 };
