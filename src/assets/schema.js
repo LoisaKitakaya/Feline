@@ -164,6 +164,27 @@ export const GET_TARGET = gql`
   }
 `;
 
+export const GET_ALL_ACCOUNT_TRANSACTIONS = gql`
+  query ($account_id: ID!) {
+    getAllTransactions(id: $account_id) {
+      id
+      transaction_type
+      transaction_amount
+      currency_code
+      description
+      transaction_date
+      category {
+        category_name
+      }
+      sub_category {
+        category_name
+      }
+      created_at
+      updated_at
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`

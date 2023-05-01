@@ -7,6 +7,7 @@ import UpdateAccount from "./UpdateAccount";
 import DeleteAccount from "./DeleteAccount";
 import { useParams } from "react-router-dom";
 import { GET_ACCOUNT } from "../../assets/schema";
+import Transactions from "../transaction/Transactions";
 import ComponentSpinner from "../spinner/ComponentSpinner";
 import { setNewNotification } from "../../redux/reducers/toast";
 
@@ -80,6 +81,7 @@ const SingleAccount = () => {
           </div>
           <hr className="mb-4" />
           {/* transactions */}
+          <Transactions account_id={data.getAccount.id} />
           {/* transactions */}
 
           {/* modals */}
