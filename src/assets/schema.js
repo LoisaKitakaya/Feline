@@ -142,6 +142,28 @@ export const GET_ALL_TARGETS = gql`
   }
 `;
 
+export const GET_TARGET = gql`
+  query ($id: ID!) {
+    getTarget(id: $id) {
+      id
+      target_name
+      target_description
+      target_is_active
+      target_amount
+      account {
+        account_name
+      }
+      category {
+        category_name
+      }
+      sub_category {
+        category_name
+      }
+      created_at
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`
