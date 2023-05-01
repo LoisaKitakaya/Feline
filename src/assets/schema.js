@@ -221,3 +221,32 @@ export const CREATE_BUDGET = gql`
     }
   }
 `;
+
+export const UPDATE_BUDGET = gql`
+  mutation (
+    $id: ID!
+    $budget_name: String!
+    $budget_description: String!
+    $budget_amount: Float!
+    $category: String!
+    $sub_category: String!
+  ) {
+    updateBudget(
+      id: $id
+      budget_name: $budget_name
+      budget_description: $budget_description
+      budget_amount: $budget_amount
+      category: $category
+      sub_category: $sub_category
+    ) {
+      id
+    }
+  }
+`;
+
+
+export const DELETE_BUDGET = gql`
+  mutation ($id: ID!) {
+    deleteBudget(id: $id)
+  }
+`;
