@@ -2,6 +2,62 @@ import { gql } from "@apollo/client";
 
 // Queries
 
+export const TRANSACTION_TYPES = gql`
+  query {
+    getTransactionType {
+      id
+      type_name
+      type_description
+    }
+  }
+`;
+
+export const TRANSACTION_CATEGORY = gql`
+  query {
+    getTransactionCategory {
+      id
+      category_name
+      category_description
+    }
+  }
+`;
+
+export const TRANSACTION_SUB_CATEGORY = gql`
+  query ($parent: String!) {
+    getTransactionSubCategory(parent: $parent) {
+      id
+      parent {
+        category_name
+      }
+      category_name
+      category_description
+    }
+  }
+`;
+
+export const PRODUCT_CATEGORY = gql`
+  query {
+    getProductCategory {
+      id
+      category_name
+      category_description
+    }
+  }
+`;
+
+export const PRODUCT_SUB_CATEGORY = gql`
+  query ($parent: String!) {
+    getProductSubCategory(parent: $parent) {
+      id
+      parent {
+        category_name
+      }
+      category_name
+      category_description
+    }
+  }
+`;
+
 export const GET_ALL_ACCOUNTS = gql`
   query {
     getAllAccounts {
