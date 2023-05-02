@@ -39,7 +39,7 @@ const Transactions = ({ account_id }) => {
         <div className="flex justify-end items-center">
           {showFilter ? (
             <button
-              className="rounded-md border py-2 px-4"
+              className="rounded-md border py-2 px-4 font-bold"
               onClick={() => dispatch(toggleFilter())}
             >
               <i class="bi bi-funnel-fill"></i> Filter

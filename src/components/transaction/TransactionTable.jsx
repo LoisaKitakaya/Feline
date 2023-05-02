@@ -17,18 +17,18 @@ const TransactionTable = ({ tableData }) => {
   const columns = useMemo(
     () => [
       {
-        Header: "Date",
+        Header: "Transaction date",
         accessor: "transaction_date",
         filter: "fuzzyText",
       },
       {
-        Header: "Type",
+        Header: "Transaction type",
         accessor: "transaction_type",
         Filter: SelectColumnFilter,
         filter: "includes",
       },
       {
-        Header: "Amount",
+        Header: "Transaction amount",
         accessor: "transaction_amount",
         Filter: NumberRangeColumnFilter,
         filter: "between",
@@ -57,12 +57,12 @@ const TransactionTable = ({ tableData }) => {
         filter: "includes",
       },
       {
-        Header: "Created",
+        Header: "Created on",
         accessor: "created_at",
         filter: "fuzzyText",
       },
       {
-        Header: "Modified",
+        Header: "Last modified",
         accessor: "updated_at",
         filter: "fuzzyText",
       },
