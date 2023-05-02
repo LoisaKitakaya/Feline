@@ -1,5 +1,5 @@
 import GlobalFilter from "./GlobalFilter";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { matchSorter } from "match-sorter";
 import IndeterminateCheckbox from "./Checkbox";
 import DefaultColumnFilter from "./DefaultColumnFilter";
@@ -10,6 +10,7 @@ import {
   useFilters,
   useGlobalFilter,
 } from "react-table";
+import { useSelector } from "react-redux";
 
 const fuzzyTextFilterFn = (rows, id, filterValue) => {
   return matchSorter(rows, filterValue, { keys: [(row) => row.values[id]] });
@@ -18,7 +19,7 @@ const fuzzyTextFilterFn = (rows, id, filterValue) => {
 fuzzyTextFilterFn.autoRemove = (val) => !val;
 
 const Tables = ({ columns, data }) => {
-  const [showFilter, setShowFilter] = useState(false);
+  const showFilter = useSelector((state) => state.filter.showFilter);
 
   const filterTypes = useMemo(
     () => ({
@@ -111,27 +112,35 @@ const Tables = ({ columns, data }) => {
                 {headerGroup.headers.map((column) => (
                   <th {...column.getHeaderProps()}>
                     {column.render("Header")}{" "}
-                    <div>
-                      {column.canFilter ? column.render("Filter") : null}
-                    </div>
+                    {showFilter ? (
+                      <div>
+                        {column.canFilter ? column.render("Filter") : null}
+                      </div>
+                    ) : (
+                      <></>
+                    )}
                   </th>
                 ))}
               </tr>
             ))}
-            <tr>
-              <th
-                colSpan={visibleColumns.length}
-                style={{
-                  textAlign: "left",
-                }}
-              >
-                <GlobalFilter
-                  preGlobalFilteredRows={preGlobalFilteredRows}
-                  globalFilter={state.globalFilter}
-                  setGlobalFilter={setGlobalFilter}
-                />
-              </th>
-            </tr>
+            {showFilter ? (
+              <tr>
+                <th
+                  colSpan={visibleColumns.length}
+                  style={{
+                    textAlign: "left",
+                  }}
+                >
+                  <GlobalFilter
+                    preGlobalFilteredRows={preGlobalFilteredRows}
+                    globalFilter={state.globalFilter}
+                    setGlobalFilter={setGlobalFilter}
+                  />
+                </th>
+              </tr>
+            ) : (
+              <></>
+            )}
           </thead>
           <tbody {...getTableBodyProps()}>
             {page.map((row) => {

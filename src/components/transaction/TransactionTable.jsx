@@ -51,7 +51,7 @@ const TransactionTable = ({ tableData }) => {
         filter: "includes",
       },
       {
-        Header: "(sub)Category",
+        Header: "Sub-category",
         accessor: "transaction_sub_category",
         Filter: SelectColumnFilter,
         filter: "includes",

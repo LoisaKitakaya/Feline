@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Modal from "../modal/Modal";
 import { useQuery } from "@apollo/client";
-import { useDispatch } from "react-redux";
 import NewTransaction from "./NewTransaction";
+import TransactionTable from "./TransactionTable";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFilter } from "../../redux/reducers/filter";
 import ComponentSpinner from "../spinner/ComponentSpinner";
 import { setNewNotification } from "../../redux/reducers/toast";
 import { GET_ALL_ACCOUNT_TRANSACTIONS } from "../../assets/schema";
-import TransactionTable from "./TransactionTable";
 
 const Transactions = ({ account_id }) => {
   const dispatch = useDispatch();
@@ -14,6 +15,8 @@ const Transactions = ({ account_id }) => {
   const [showCreate, setShowCreate] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
+
+  const showFilter = useSelector((state) => state.filter.showFilter);
 
   const { loading, data, error } = useQuery(GET_ALL_ACCOUNT_TRANSACTIONS, {
     variables: {
@@ -34,9 +37,21 @@ const Transactions = ({ account_id }) => {
       <div className="flex justify-between items-center mb-4">
         <h4 className="text-xl font-semibold">Account transactions</h4>
         <div className="flex justify-end items-center">
-          <button className="rounded-md border py-2 px-4" onClick={() => {}}>
-            <i class="bi bi-funnel"></i> Filter
-          </button>
+          {showFilter ? (
+            <button
+              className="rounded-md border py-2 px-4"
+              onClick={() => dispatch(toggleFilter())}
+            >
+              <i class="bi bi-funnel-fill"></i> Filter
+            </button>
+          ) : (
+            <button
+              className="rounded-md border py-2 px-4"
+              onClick={() => dispatch(toggleFilter())}
+            >
+              <i class="bi bi-funnel"></i> Filter
+            </button>
+          )}
           <div className="mx-2"></div>
           <button
             className="rounded-md border py-2 px-4"

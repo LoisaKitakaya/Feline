@@ -1,3 +1,4 @@
+import toggleFilterReducer from "./reducers/filter";
 import { configureStore } from "@reduxjs/toolkit";
 import darkThemeReducer from "./reducers/theme";
 import drawerReducer from "./reducers/drawer";
@@ -10,5 +11,6 @@ export default configureStore({
     toast: toastReducer,
     drawer: drawerReducer,
     themes: darkThemeReducer,
+    filter: toggleFilterReducer,
   },
 });
