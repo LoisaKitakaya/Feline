@@ -34,6 +34,10 @@ const Transactions = ({ account_id }) => {
       <div className="flex justify-between items-center mb-4">
         <h4 className="text-xl font-semibold">Account transactions</h4>
         <div className="flex justify-end items-center">
+          <button className="rounded-md border py-2 px-4" onClick={() => {}}>
+            <i class="bi bi-funnel"></i> Filter
+          </button>
+          <div className="mx-2"></div>
           <button
             className="rounded-md border py-2 px-4"
             onClick={() => setShowCreate(true)}

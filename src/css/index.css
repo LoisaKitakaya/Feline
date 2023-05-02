@@ -231,9 +231,10 @@ input[type="checkbox"] {
 
 /* Apply a border-collapse to the table to remove borders between cells */
 table {
-  border-collapse: collapse;
   width: 100%;
   margin: 0 auto;
+  white-space: nowrap;
+  border-collapse: collapse;
 }
 
 /* Add a light grey background color to the header row */
@@ -256,6 +257,7 @@ th {
 /* Add a padding to the table cells */
 td {
   padding: 12px;
+  text-align: left;
 }
 
 /* Add a hover effect to table rows */

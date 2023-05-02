@@ -27,7 +27,6 @@ const GlobalFilter = ({
         placeholder={`${count} records...`}
         style={{
           fontSize: "1.1rem",
-          border: "0",
         }}
       />
     </div>

@@ -14,11 +14,7 @@ const NumberRangeColumnFilter = ({
   }, [id, preFilteredRows]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-      }}
-    >
+    <div className="flex justify-center items-center">
       <input
         value={filterValue[0] || ""}
         className="block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
@@ -32,14 +28,13 @@ const NumberRangeColumnFilter = ({
         }}
         placeholder={`Min (${min})`}
         style={{
-          width: "70px",
+          minWidth: "120px",
           marginRight: "0.5rem",
         }}
       />
-      to
       <input
         value={filterValue[1] || ""}
-        className="mt-1 block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        className="block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         type="number"
         onChange={(e) => {
           const val = e.target.value;
@@ -50,7 +45,7 @@ const NumberRangeColumnFilter = ({
         }}
         placeholder={`Max (${max})`}
         style={{
-          width: "70px",
+          minWidth: "120px",
           marginLeft: "0.5rem",
         }}
       />
