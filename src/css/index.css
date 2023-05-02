@@ -127,16 +127,6 @@ textarea {
   color: var(--foreground-gray-100);
 }
 
-.App,
-.page {
-  min-height: 100vh !important;
-  width: 100% !important;
-}
-
-.page {
-  padding: 6rem 1rem;
-}
-
 .react-toggle-track {
   background-color: var(--background-slate-800) !important;
 }
@@ -151,6 +141,16 @@ textarea {
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
   background-color: var(--background-slate-200) !important;
+}
+
+.App,
+.page {
+  min-height: 100vh !important;
+  width: 100% !important;
+}
+
+.page {
+  padding: 6rem 1rem;
 }
 
 /* tooltip styling */
@@ -220,4 +220,45 @@ textarea {
   height: 100%;
   position: fixed;
   background-color: #111827e0;
+}
+
+/* table styling */
+
+/* Apply a border-collapse to the table to remove borders between cells */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Add a light grey background color to the header row */
+/* thead tr {
+  background-color: #f8f8f8;
+} */
+
+/* Add a border to the bottom of the header row */
+thead tr th {
+  border-bottom: 2px solid;
+}
+
+/* Add a padding and text alignment to the header cells */
+th {
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Add a padding to the table cells */
+td {
+  padding: 12px;
+}
+
+/* Add a hover effect to table rows */
+/* tr:hover {
+  background-color: #f5f5f5;
+} */
+
+/* Add a border to the bottom of the table rows */
+tr td {
+  border-bottom: 1px solid;
 }

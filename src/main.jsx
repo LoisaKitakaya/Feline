@@ -12,6 +12,7 @@ import {
 
 import App from "./App";
 
+import "./css/App.css";
 import "animate.css";
 import "./css/index.css";
 import "react-toggle/style.css";
