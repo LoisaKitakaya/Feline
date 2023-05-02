@@ -59,12 +59,14 @@ const TransactionTable = ({ tableData }) => {
       {
         Header: "Created on",
         accessor: "created_at",
-        filter: "fuzzyText",
+        Filter: SelectColumnFilter,
+        filter: "includes",
       },
       {
         Header: "Last modified",
         accessor: "updated_at",
-        filter: "fuzzyText",
+        Filter: SelectColumnFilter,
+        filter: "includes",
       },
     ],
     []
