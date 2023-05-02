@@ -1,8 +1,8 @@
 import moment from "moment";
 import { useMemo } from "react";
-import { useTable } from "react-table";
+import Tables from "../table/Tables";
 
-const Tables = ({ tableData }) => {
+const TransactionTable = ({ tableData }) => {
   const columns = useMemo(
     () => [
       {
@@ -45,7 +45,7 @@ const Tables = ({ tableData }) => {
     []
   );
 
-  const newArray = useMemo(
+  const data = useMemo(
     () =>
       tableData.map((transaction) => {
         return {
@@ -66,43 +66,10 @@ const Tables = ({ tableData }) => {
     [tableData]
   );
 
-  const tableInstance = useTable({ columns, data: newArray });
-
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    tableInstance;
-
   return (
     <>
-      {tableData.length !== 0 ? (
-        <>
-          <table {...getTableProps()} className="table-auto">
-            <thead>
-              {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => (
-                    <th {...column.getHeaderProps()}>
-                      {column.render("Header")}
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-              {rows.map((row) => {
-                prepareRow(row);
-                return (
-                  <tr {...row.getRowProps()}>
-                    {row.cells.map((cell) => {
-                      return (
-                        <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </>
+      {tableData !== 0 ? (
+        <Tables columns={columns} data={data} />
       ) : (
         <>
           <div className="my-20 text-center">
@@ -116,4 +83,4 @@ const Tables = ({ tableData }) => {
   );
 };
 
-export default Tables;
+export default TransactionTable;
