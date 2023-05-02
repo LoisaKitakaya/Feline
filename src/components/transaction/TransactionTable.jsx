@@ -95,7 +95,7 @@ const TransactionTable = ({ tableData }) => {
 
   return (
     <>
-      {tableData !== 0 ? (
+      {tableData.length !== 0 ? (
         <Tables columns={columns} data={data} />
       ) : (
         <>
