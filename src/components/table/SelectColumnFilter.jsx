@@ -14,7 +14,7 @@ const SelectColumnFilter = ({
   return (
     <select
       value={filterValue}
-      className="mt-1 block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+      className="block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
       onChange={(e) => {
         setFilter(e.target.value || undefined);
       }}

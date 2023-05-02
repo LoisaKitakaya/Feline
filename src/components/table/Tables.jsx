@@ -143,9 +143,6 @@ const Tables = ({ columns, data }) => {
           })}
         </tbody>
       </table>
-      <pre>
-        <code>{JSON.stringify(state.filters, null, 2)}</code>
-      </pre>
       <div className="flex justify-between items-center mt-4">
         <div className="flex justify-start items-center">
           <button

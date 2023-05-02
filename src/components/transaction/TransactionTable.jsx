@@ -1,45 +1,71 @@
 import moment from "moment";
 import { useMemo } from "react";
 import Tables from "../table/Tables";
+import SelectColumnFilter from "../table/SelectColumnFilter";
+import SliderColumnFilter from "../table/SliderColumnFilter";
+import NumberRangeColumnFilter from "../table/NumberRangeColumnFilter";
+
+const filterGreaterThan = (rows, id, filterValue) => {
+  return rows.filter((row) => {
+    const rowValue = row.values[id];
+    return rowValue >= filterValue;
+  });
+};
+
+filterGreaterThan.autoRemove = (val) => typeof val !== "number";
 
 const TransactionTable = ({ tableData }) => {
   const columns = useMemo(
     () => [
       {
-        Header: "Transaction date",
+        Header: "Date",
         accessor: "transaction_date",
+        filter: "fuzzyText",
       },
       {
-        Header: "Transaction type",
+        Header: "Type",
         accessor: "transaction_type",
+        Filter: SelectColumnFilter,
+        filter: "includes",
       },
       {
-        Header: "Transaction amount",
+        Header: "Amount",
         accessor: "transaction_amount",
+        Filter: NumberRangeColumnFilter,
+        filter: "between",
       },
       {
         Header: "Currency",
         accessor: "currency_code",
+        Filter: SelectColumnFilter,
+        filter: "includes",
       },
       {
         Header: "Description",
         accessor: "description",
+        filter: "fuzzyText",
       },
       {
         Header: "Category",
         accessor: "transaction_category",
+        Filter: SelectColumnFilter,
+        filter: "includes",
       },
       {
-        Header: "Sub category",
+        Header: "(sub)Category",
         accessor: "transaction_sub_category",
+        Filter: SelectColumnFilter,
+        filter: "includes",
       },
       {
         Header: "Created",
         accessor: "created_at",
+        filter: "fuzzyText",
       },
       {
-        Header: "Last modified",
+        Header: "Modified",
         accessor: "updated_at",
+        filter: "fuzzyText",
       },
     ],
     []
@@ -51,7 +77,7 @@ const TransactionTable = ({ tableData }) => {
         return {
           id: transaction.id,
           transaction_type: transaction.transaction_type,
-          transaction_amount: transaction.transaction_amount.toLocaleString(),
+          transaction_amount: transaction.transaction_amount,
           currency_code: transaction.currency_code,
           description: transaction.description,
           transaction_date: moment

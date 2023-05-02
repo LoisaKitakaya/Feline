@@ -6,7 +6,7 @@ const DefaultColumnFilter = ({
   return (
     <input
       value={filterValue || ""}
-      className="mt-1 block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+      className="block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 py-2 px-4"
       onChange={(e) => {
         setFilter(e.target.value || undefined);
       }}

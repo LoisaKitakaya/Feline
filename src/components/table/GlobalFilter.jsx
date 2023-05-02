@@ -14,11 +14,12 @@ const GlobalFilter = ({
   }, 200);
 
   return (
-    <span>
-      Search:{" "}
+    <div className="flex justify-start items-center">
+      <span>Search:</span>
+      <div className="mx-2"></div>
       <input
         value={value || ""}
-        className="mt-1 block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        className="block w-full rounded-md border focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 py-2 px-4"
         onChange={(e) => {
           setValue(e.target.value);
           onChange(e.target.value);
@@ -29,7 +30,7 @@ const GlobalFilter = ({
           border: "0",
         }}
       />
-    </span>
+    </div>
   );
 };
 
