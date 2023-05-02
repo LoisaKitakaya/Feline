@@ -2,7 +2,6 @@ import moment from "moment";
 import { useMemo } from "react";
 import Tables from "../table/Tables";
 import SelectColumnFilter from "../table/SelectColumnFilter";
-import SliderColumnFilter from "../table/SliderColumnFilter";
 import NumberRangeColumnFilter from "../table/NumberRangeColumnFilter";
 
 const filterGreaterThan = (rows, id, filterValue) => {
