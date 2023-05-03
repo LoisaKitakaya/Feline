@@ -360,3 +360,27 @@ export const DELETE_TARGET = gql`
     deleteTarget(id: $id)
   }
 `;
+
+export const CREATE_TRANSACTION = gql`
+  mutation (
+    $account_id: ID!
+    $transaction_type: String!
+    $transaction_amount: Float!
+    $transaction_date: String!
+    $description: String!
+    $category: String!
+    $sub_category: String!
+  ) {
+    createTransaction(
+      account_id: $account_id
+      transaction_type: $transaction_type
+      transaction_amount: $transaction_amount
+      transaction_date: $transaction_date
+      description: $description
+      category: $category
+      sub_category: $sub_category
+    ) {
+      id
+    }
+  }
+`;

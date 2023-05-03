@@ -58,7 +58,7 @@ const SingleAccount = () => {
           <div className="flex justify-between items-center">
             <div className="flex justify-end items-center mb-4">
               <p className="text-lg">
-                <span className="font-semibold">Currency code:</span>{" "}
+                <span className="font-semibold">Currency:</span>{" "}
                 <span>{data.getAccount.currency_code}</span>
               </p>
               <div className="mx-4"></div>
