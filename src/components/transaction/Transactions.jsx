@@ -9,6 +9,7 @@ import ComponentSpinner from "../spinner/ComponentSpinner";
 import { setNewNotification } from "../../redux/reducers/toast";
 import { GET_ALL_ACCOUNT_TRANSACTIONS } from "../../assets/schema";
 import UpdateTransaction from "./UpdateTransaction";
+import DeleteTransaction from "./DeleteTransaction";
 
 const Transactions = ({ account_id }) => {
   const dispatch = useDispatch();
@@ -70,7 +71,10 @@ const Transactions = ({ account_id }) => {
             <i className="bi bi-pencil"></i> Update Transaction
           </button>
           <div className="mx-2"></div>
-          <button className="rounded-md border py-2 px-4" onClick={() => {}}>
+          <button
+            className="rounded-md border py-2 px-4"
+            onClick={() => setConfirmDelete(true)}
+          >
             <i className="bi bi-trash"></i> Delete Transaction
           </button>
         </div>
@@ -92,6 +96,18 @@ const Transactions = ({ account_id }) => {
         setVisible={setShowUpdate}
         title={"Update transaction"}
         element={<UpdateTransaction account_id={account_id} id={selectedRow} />}
+      />
+      <Modal
+        visible={confirmDelete}
+        setVisible={setConfirmDelete}
+        title={"Delete transaction"}
+        element={
+          <DeleteTransaction
+            account_id={account_id}
+            id={selectedRow}
+            confirmDelete={setConfirmDelete}
+          />
+        }
       />
       {/* modals */}
     </>
