@@ -18,7 +18,7 @@ const fuzzyTextFilterFn = (rows, id, filterValue) => {
 
 fuzzyTextFilterFn.autoRemove = (val) => !val;
 
-const Tables = ({ columns, data }) => {
+const Tables = ({ columns, data, setSelectedRow }) => {
   const showFilter = useSelector((state) => state.filter.showFilter);
 
   const filterTypes = useMemo(
@@ -99,7 +99,7 @@ const Tables = ({ columns, data }) => {
   } = tableInstance;
 
   if (selectedFlatRows.length !== 0) {
-    console.log(`${selectedFlatRows.map((d) => d.original.id)}`);
+    setSelectedRow(`${selectedFlatRows.map((d) => d.original.id)}`);
   }
 
   return (
@@ -223,7 +223,7 @@ const Tables = ({ columns, data }) => {
                 setPageSize(Number(e.target.value));
               }}
             >
-              {[10, 20, 30, 40, 50].map((pageSize) => (
+              {[5, 10, 20, 30, 40, 50].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>
                   Show {pageSize}
                 </option>

@@ -13,7 +13,7 @@ const filterGreaterThan = (rows, id, filterValue) => {
 
 filterGreaterThan.autoRemove = (val) => typeof val !== "number";
 
-const TransactionTable = ({ tableData }) => {
+const TransactionTable = ({ tableData, setSelectedRow }) => {
   const columns = useMemo(
     () => [
       {
@@ -96,7 +96,7 @@ const TransactionTable = ({ tableData }) => {
   return (
     <>
       {tableData.length !== 0 ? (
-        <Tables columns={columns} data={data} />
+        <Tables columns={columns} data={data} setSelectedRow={setSelectedRow} />
       ) : (
         <>
           <div className="my-20 text-center">

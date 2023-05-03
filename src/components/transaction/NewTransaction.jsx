@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import ButtonSpinner from "../spinner/ButtonSpinner";
+import TransactionType from "../recurring/TransactionType";
 import TransactionCategory from "../recurring/TransactionCategory";
 import TransactionSubCategory from "../recurring/TransactionSubCategory";
 import {
@@ -13,7 +14,6 @@ import {
   setNewNotification,
   clearOldNotification,
 } from "../../redux/reducers/toast";
-import TransactionType from "../recurring/TransactionType";
 
 const NewTransaction = ({ account_id }) => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const NewTransaction = ({ account_id }) => {
           query: GET_ALL_ACCOUNT_TRANSACTIONS,
           variables: { account_id: account_id },
         },
-        { query: GET_ACCOUNT, variables: { account_id: account_id } },
+        { query: GET_ACCOUNT, variables: { id: account_id } },
       ],
     }
   );

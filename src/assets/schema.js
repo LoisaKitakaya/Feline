@@ -384,3 +384,35 @@ export const CREATE_TRANSACTION = gql`
     }
   }
 `;
+
+export const UPDATE_TRANSACTION = gql`
+  mutation (
+    $id: ID!
+    $account_id: ID!
+    $transaction_type: String!
+    $transaction_amount: Float!
+    $transaction_date: String!
+    $description: String!
+    $category: String!
+    $sub_category: String!
+  ) {
+    updateTransaction(
+      id: $id
+      account_id: $account_id
+      transaction_type: $transaction_type
+      transaction_amount: $transaction_amount
+      transaction_date: $transaction_date
+      description: $description
+      category: $category
+      sub_category: $sub_category
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_TRANSACTION = gql`
+  mutation ($id: ID!, $account_id: ID!) {
+    deleteTransaction(id: $id, account_id: $account_id)
+  }
+`;
