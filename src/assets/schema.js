@@ -190,6 +190,34 @@ export const GET_ALL_ACCOUNT_TRANSACTIONS = gql`
   }
 `;
 
+export const GET_ALL_PRODUCTS = gql`
+  query getAllProducts($account_id: ID!) {
+    getAllProducts(account_id: $account_id) {
+      id
+      name
+      description
+      category {
+        id
+        category_name
+      }
+      sub_category {
+        id
+        category_name
+      }
+      buying_price
+      selling_price
+      current_stock_level
+      units_sold
+      reorder_level
+      reorder_quantity
+      supplier_name
+      supplier_phone_number
+      supplier_email
+      profit_generated
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`
