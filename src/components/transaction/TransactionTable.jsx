@@ -77,7 +77,7 @@ const TransactionTable = ({ tableData, setSelectedRow }) => {
       tableData.map((transaction) => {
         return {
           id: transaction.id,
-          transaction_type: transaction.transaction_type,
+          transaction_type: transaction.transaction_type.type_name,
           transaction_amount: transaction.transaction_amount,
           currency_code: transaction.currency_code,
           description: transaction.description,

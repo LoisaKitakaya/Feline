@@ -46,14 +46,14 @@ const Transactions = ({ account_id }) => {
               className="rounded-md border py-2 px-4 font-bold"
               onClick={() => dispatch(toggleFilter())}
             >
-              <i class="bi bi-funnel-fill"></i> Filter
+              <i className="bi bi-funnel-fill"></i> Filter
             </button>
           ) : (
             <button
               className="rounded-md border py-2 px-4"
               onClick={() => dispatch(toggleFilter())}
             >
-              <i class="bi bi-funnel"></i> Filter
+              <i className="bi bi-funnel"></i> Filter
             </button>
           )}
           <div className="mx-2"></div>

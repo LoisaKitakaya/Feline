@@ -16,6 +16,9 @@ export const TRANSACTION_CATEGORY = gql`
   query {
     getTransactionCategory {
       id
+      parent {
+        group_name
+      }
       category_name
       category_description
     }
@@ -166,9 +169,11 @@ export const GET_TARGET = gql`
 
 export const GET_ALL_ACCOUNT_TRANSACTIONS = gql`
   query ($account_id: ID!) {
-    getAllTransactions(id: $account_id) {
+    getAllTransactions(account_id: $account_id) {
       id
-      transaction_type
+      transaction_type {
+        type_name
+      }
       transaction_amount
       currency_code
       description
