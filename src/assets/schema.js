@@ -487,3 +487,39 @@ export const CREATE_PRODUCT = gql`
     }
   }
 `;
+
+export const UPDATE_PRODUCT = gql`
+  mutation updateProduct(
+    $id: ID!
+    $name: String!
+    $description: String!
+    $category: String!
+    $sub_category: String!
+    $buying_price: Float!
+    $selling_price: Float!
+    $current_stock_level: Int!
+    $units_sold: Int!
+    $reorder_level: Int!
+    $supplier_name: String!
+    $supplier_phone_number: String!
+    $supplier_email: String!
+  ) {
+    updateProduct(
+      id: $id
+      name: $name
+      description: $description
+      category: $category
+      sub_category: $sub_category
+      buying_price: $buying_price
+      selling_price: $selling_price
+      current_stock_level: $current_stock_level
+      units_sold: $units_sold
+      reorder_level: $reorder_level
+      supplier_name: $supplier_name
+      supplier_phone_number: $supplier_phone_number
+      supplier_email: $supplier_email
+    ) {
+      id
+    }
+  }
+`;

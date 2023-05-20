@@ -81,7 +81,7 @@ const Shelf = ({ account_id }) => {
       </div>
       <InventoryTable
         tableData={data.getAllProducts}
-        setSelectedRow={selectedRow}
+        setSelectedRow={setSelectedRow}
       />
 
       {/* modals */}
