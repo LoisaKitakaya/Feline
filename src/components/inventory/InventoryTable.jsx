@@ -76,6 +76,23 @@ const InventoryTable = ({ tableData, setSelectedRow }) => {
         filter: "between",
       },
       {
+        Header: "Supplier name",
+        accessor: "supplier_name",
+        filter: "fuzzyText",
+      },
+      {
+        Header: "Supplier phone number",
+        accessor: "supplier_phone_number",
+        Filter: SelectColumnFilter,
+        filter: "includes",
+      },
+      {
+        Header: "Supplier email",
+        accessor: "supplier_email",
+        Filter: SelectColumnFilter,
+        filter: "includes",
+      },
+      {
         Header: "Created on",
         accessor: "created_at",
         Filter: SelectColumnFilter,
@@ -106,6 +123,9 @@ const InventoryTable = ({ tableData, setSelectedRow }) => {
           units_sold: product.units_sold,
           reorder_level: product.reorder_level,
           profit_generated: product.profit_generated,
+          supplier_name: product.supplier_name,
+          supplier_phone_number: product.supplier_phone_number,
+          supplier_email: product.supplier_email,
           created_at: moment.unix(product.created_at).fromNow(),
           updated_at: moment.unix(product.updated_at).fromNow(),
         };

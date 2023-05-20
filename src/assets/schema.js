@@ -214,6 +214,8 @@ export const GET_ALL_PRODUCTS = gql`
       supplier_phone_number
       supplier_email
       profit_generated
+      created_at
+      updated_at
     }
   }
 `;
@@ -447,5 +449,41 @@ export const UPDATE_TRANSACTION = gql`
 export const DELETE_TRANSACTION = gql`
   mutation ($id: ID!, $account_id: ID!) {
     deleteTransaction(id: $id, account_id: $account_id)
+  }
+`;
+
+export const CREATE_PRODUCT = gql`
+  mutation createProduct(
+    $account_id: ID!
+    $name: String!
+    $description: String!
+    $category: String!
+    $sub_category: String!
+    $buying_price: Float!
+    $selling_price: Float!
+    $current_stock_level: Int!
+    $units_sold: Int!
+    $reorder_level: Int!
+    $supplier_name: String!
+    $supplier_phone_number: String!
+    $supplier_email: String!
+  ) {
+    createProduct(
+      account_id: $account_id
+      name: $name
+      description: $description
+      category: $category
+      sub_category: $sub_category
+      buying_price: $buying_price
+      selling_price: $selling_price
+      current_stock_level: $current_stock_level
+      units_sold: $units_sold
+      reorder_level: $reorder_level
+      supplier_name: $supplier_name
+      supplier_phone_number: $supplier_phone_number
+      supplier_email: $supplier_email
+    ) {
+      id
+    }
   }
 `;
