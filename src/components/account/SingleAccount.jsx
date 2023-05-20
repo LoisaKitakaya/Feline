@@ -10,6 +10,7 @@ import { GET_ACCOUNT } from "../../assets/schema";
 import Transactions from "../transaction/Transactions";
 import ComponentSpinner from "../spinner/ComponentSpinner";
 import { setNewNotification } from "../../redux/reducers/toast";
+import Shelf from "../inventory/Shelf";
 
 const SingleAccount = () => {
   const { id } = useParams();
@@ -80,9 +81,16 @@ const SingleAccount = () => {
             </div>
           </div>
           <hr className="mb-4" />
+
           {/* transactions */}
           <Transactions account_id={data.getAccount.id} />
           {/* transactions */}
+
+          <hr className="mb-4" />
+
+          {/* inventory */}
+          <Shelf account_id={data.getAccount.id} />
+          {/* inventory */}
 
           {/* modals */}
           <Modal

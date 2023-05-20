@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFilter } from "../../redux/reducers/filter";
 import ComponentSpinner from "../spinner/ComponentSpinner";
 import { setNewNotification } from "../../redux/reducers/toast";
+import InventoryTable from "./InventoryTable";
 
 const Shelf = ({ account_id }) => {
   const dispatch = useDispatch();
@@ -36,46 +37,52 @@ const Shelf = ({ account_id }) => {
   }
 
   return (
-    <div className="flex justify-between items-center mb-4">
-      <h4 className="text-xl font-semibold">Your Inventory</h4>
-      <div className="flex justify-end items-center">
-        {showFilter ? (
-          <button
-            className="rounded-md border py-2 px-4 font-bold"
-            onClick={() => dispatch(toggleFilter())}
-          >
-            <i className="bi bi-funnel-fill"></i> Filter
-          </button>
-        ) : (
+    <>
+      <div className="flex justify-between items-center mb-4">
+        <h4 className="text-xl font-semibold">Your inventory</h4>
+        <div className="flex justify-end items-center">
+          {showFilter ? (
+            <button
+              className="rounded-md border py-2 px-4 font-bold"
+              onClick={() => dispatch(toggleFilter())}
+            >
+              <i className="bi bi-funnel-fill"></i> Filter
+            </button>
+          ) : (
+            <button
+              className="rounded-md border py-2 px-4"
+              onClick={() => dispatch(toggleFilter())}
+            >
+              <i className="bi bi-funnel"></i> Filter
+            </button>
+          )}
+          <div className="mx-2"></div>
           <button
             className="rounded-md border py-2 px-4"
-            onClick={() => dispatch(toggleFilter())}
+            onClick={() => setShowCreate(true)}
           >
-            <i className="bi bi-funnel"></i> Filter
+            <i className="bi bi-plus-lg"></i> New Product
           </button>
-        )}
-        <div className="mx-2"></div>
-        <button
-          className="rounded-md border py-2 px-4"
-          onClick={() => setShowCreate(true)}
-        >
-          <i className="bi bi-plus-lg"></i> New Product
-        </button>
-        <div className="mx-2"></div>
-        <button
-          className="rounded-md border py-2 px-4"
-          onClick={() => setShowUpdate(true)}
-        >
-          <i className="bi bi-pencil"></i> Update Product
-        </button>
-        <div className="mx-2"></div>
-        <button
-          className="rounded-md border py-2 px-4"
-          onClick={() => setConfirmDelete(true)}
-        >
-          <i className="bi bi-trash"></i> Delete Product
-        </button>
+          <div className="mx-2"></div>
+          <button
+            className="rounded-md border py-2 px-4"
+            onClick={() => setShowUpdate(true)}
+          >
+            <i className="bi bi-pencil"></i> Update Product
+          </button>
+          <div className="mx-2"></div>
+          <button
+            className="rounded-md border py-2 px-4"
+            onClick={() => setConfirmDelete(true)}
+          >
+            <i className="bi bi-trash"></i> Delete Product
+          </button>
+        </div>
       </div>
+      <InventoryTable
+        tableData={data.getAllProducts}
+        setSelectedRow={selectedRow}
+      />
 
       {/* modals */}
       <Modal
@@ -103,7 +110,7 @@ const Shelf = ({ account_id }) => {
         }
       />
       {/* modals */}
-    </div>
+    </>
   );
 };
 
