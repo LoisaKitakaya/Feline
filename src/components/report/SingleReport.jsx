@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
