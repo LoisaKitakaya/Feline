@@ -36,7 +36,7 @@ const Drawer = () => {
 
   return (
     <div
-      className="border-l drawer py-4"
+      className="py-4 border-l drawer"
       style={{
         width: width,
         display: display,
@@ -56,56 +56,56 @@ const Drawer = () => {
         <li className="my-2"></li>
         <li>
           <Link to="/" className="tooltip">
-            <i className="bi bi-safe text-3xl p-4"></i>
+            <i className="p-4 text-3xl bi bi-safe"></i>
             <span className="tooltip-text">Accounts</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/budgets" className="tooltip">
-            <i className="bi bi-coin text-3xl p-4"></i>
+            <i className="p-4 text-3xl bi bi-coin"></i>
             <span className="tooltip-text">Budgets</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/targets" className="tooltip">
-            <i className="bi bi-cash-coin text-3xl p-4"></i>
+            <i className="p-4 text-3xl bi bi-cash-coin"></i>
             <span className="tooltip-text">Targets</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/inventory" className="tooltip">
-            <i className="bi bi-box-seam text-3xl p-4"></i>
+            <i className="p-4 text-3xl bi bi-box-seam"></i>
             <span className="tooltip-text">Inventory</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/employees" className="tooltip">
-            <i className="bi bi-people text-3xl p-4"></i>
+            <i className="p-4 text-3xl bi bi-people"></i>
             <span className="tooltip-text">Employees</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/reports" className="tooltip">
-            <i className="bi bi-heart-pulse text-3xl p-4"></i>
+            <i className="p-4 text-3xl bi bi-heart-pulse"></i>
             <span className="tooltip-text">Reports</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/assistant" className="tooltip">
-            <i className="bi bi-robot text-3xl p-4"></i>
+            <i className="p-4 text-3xl bi bi-robot"></i>
             <span className="tooltip-text">Assistant</span>
           </Link>
         </li>
         <li className="my-2"></li>
         <li>
           <Link to="/profile" className="tooltip">
-            <i className="bi bi-wrench-adjustable-circle text-3xl p-4"></i>
+            <i className="p-4 text-3xl bi bi-wrench-adjustable-circle"></i>
             <span className="tooltip-text">Profile</span>
           </Link>
         </li>
