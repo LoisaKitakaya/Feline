@@ -39,7 +39,7 @@ const UpdateTransaction = ({ account_id, id }) => {
     dispatch(
       setNewNotification({
         type: "success",
-        message: "Transaction created successfully",
+        message: "Transaction updated successfully",
       })
     );
   }

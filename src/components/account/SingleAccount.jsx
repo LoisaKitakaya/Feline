@@ -10,6 +10,7 @@ import { GET_ACCOUNT } from "../../assets/schema";
 import Transactions from "../transaction/Transactions";
 import ComponentSpinner from "../spinner/ComponentSpinner";
 import { setNewNotification } from "../../redux/reducers/toast";
+import Shelf from "../inventory/Shelf";
 
 const SingleAccount = () => {
   const { id } = useParams();
@@ -18,6 +19,9 @@ const SingleAccount = () => {
 
   const [showUpdate, setShowUpdate] = useState(false);
   const [confirmDelete, setConfirmDelete] = useState(false);
+
+  const [showInventory, setShowInventory] = useState(false);
+  const [showTransactions, setShowTransactions] = useState(true);
 
   const { loading, data, error } = useQuery(GET_ACCOUNT, {
     variables: { id: id },
@@ -36,9 +40,36 @@ const SingleAccount = () => {
       {data && (
         <>
           <div className="flex justify-between items-center mb-4">
-            <h4 className="text-2xl font-semibold">
-              {data.getAccount.account_name}
-            </h4>
+            <div className="flex justify-start items-center">
+              <h4 className="text-2xl font-semibold mr-4">
+                {data.getAccount.account_name}
+              </h4>
+              {showInventory && (
+                <>
+                  <button
+                    onClick={() => {
+                      setShowTransactions(true);
+                      setShowInventory(false);
+                    }}
+                  >
+                    <i className="bi bi-currency-exchange"></i> Show
+                    Transactions
+                  </button>
+                </>
+              )}
+              {showTransactions && (
+                <>
+                  <button
+                    onClick={() => {
+                      setShowInventory(true);
+                      setShowTransactions(false);
+                    }}
+                  >
+                    <i className="bi bi-box-seam-fill"></i> Show inventory
+                  </button>
+                </>
+              )}
+            </div>
             <div className="flex justify-between items-center">
               <button
                 className="rounded-md border py-2 px-4"
@@ -80,9 +111,14 @@ const SingleAccount = () => {
             </div>
           </div>
           <hr className="mb-4" />
+
           {/* transactions */}
-          <Transactions account_id={data.getAccount.id} />
+          {showTransactions && <Transactions account_id={data.getAccount.id} />}
           {/* transactions */}
+
+          {/* inventory */}
+          {showInventory && <Shelf account_id={data.getAccount.id} />}
+          {/* inventory */}
 
           {/* modals */}
           <Modal

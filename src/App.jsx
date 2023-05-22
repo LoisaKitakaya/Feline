@@ -10,12 +10,14 @@ import Navbar from "./components/nav/Navbar";
 
 import Signup from "./pages/Signup";
 import Signin from "./pages/Signin";
-import Account from "./pages/Account";
 import Accounts from "./pages/Accounts";
+import Account from "./pages/Account";
 import Budgets from "./pages/Budgets";
 import Budget from "./pages/Budget";
 import Targets from "./pages/Targets";
 import Target from "./pages/Target";
+import Reports from "./pages/Reports";
+import Report from "./pages/Report";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -77,6 +79,8 @@ const App = () => {
           <Route path="/budget/:id" element={<Budget />} />
           <Route path="/targets" element={<Targets />} />
           <Route path="/target/:id" element={<Target />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/report/:statement_uid" element={<Report />} />
         </Routes>
         {/* app content */}
 
@@ -84,6 +88,7 @@ const App = () => {
         <Footer />
         {/* footer */}
       </div>
+
       {/* app drawer */}
       <Drawer />
       {/* app drawer */}

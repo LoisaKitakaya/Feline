@@ -190,6 +190,61 @@ export const GET_ALL_ACCOUNT_TRANSACTIONS = gql`
   }
 `;
 
+export const GET_ALL_PRODUCTS = gql`
+  query getAllProducts($account_id: ID!) {
+    getAllProducts(account_id: $account_id) {
+      id
+      name
+      description
+      category {
+        id
+        category_name
+      }
+      sub_category {
+        id
+        category_name
+      }
+      buying_price
+      selling_price
+      current_stock_level
+      units_sold
+      reorder_level
+      reorder_quantity
+      supplier_name
+      supplier_phone_number
+      supplier_email
+      profit_generated
+      created_at
+      updated_at
+    }
+  }
+`;
+
+export const GET_ALL_REPORTS = gql`
+  query getAllReports($account_id: ID!) {
+    getAllReports(account_id: $account_id) {
+      id
+      statement_uid
+      begin_date
+      end_date
+    }
+  }
+`;
+
+export const GET_REPORT = gql`
+  query getReport($statement_uid: String!) {
+    getReport(statement_uid: $statement_uid) {
+      id
+      statement_uid
+      amount
+      item {
+        name
+        is_income
+      }
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`
@@ -419,5 +474,105 @@ export const UPDATE_TRANSACTION = gql`
 export const DELETE_TRANSACTION = gql`
   mutation ($id: ID!, $account_id: ID!) {
     deleteTransaction(id: $id, account_id: $account_id)
+  }
+`;
+
+export const CREATE_PRODUCT = gql`
+  mutation createProduct(
+    $account_id: ID!
+    $name: String!
+    $description: String!
+    $category: String!
+    $sub_category: String!
+    $buying_price: Float!
+    $selling_price: Float!
+    $current_stock_level: Int!
+    $units_sold: Int!
+    $reorder_level: Int!
+    $supplier_name: String!
+    $supplier_phone_number: String!
+    $supplier_email: String!
+  ) {
+    createProduct(
+      account_id: $account_id
+      name: $name
+      description: $description
+      category: $category
+      sub_category: $sub_category
+      buying_price: $buying_price
+      selling_price: $selling_price
+      current_stock_level: $current_stock_level
+      units_sold: $units_sold
+      reorder_level: $reorder_level
+      supplier_name: $supplier_name
+      supplier_phone_number: $supplier_phone_number
+      supplier_email: $supplier_email
+    ) {
+      id
+    }
+  }
+`;
+
+export const UPDATE_PRODUCT = gql`
+  mutation updateProduct(
+    $id: ID!
+    $name: String!
+    $description: String!
+    $category: String!
+    $sub_category: String!
+    $buying_price: Float!
+    $selling_price: Float!
+    $current_stock_level: Int!
+    $units_sold: Int!
+    $reorder_level: Int!
+    $supplier_name: String!
+    $supplier_phone_number: String!
+    $supplier_email: String!
+  ) {
+    updateProduct(
+      id: $id
+      name: $name
+      description: $description
+      category: $category
+      sub_category: $sub_category
+      buying_price: $buying_price
+      selling_price: $selling_price
+      current_stock_level: $current_stock_level
+      units_sold: $units_sold
+      reorder_level: $reorder_level
+      supplier_name: $supplier_name
+      supplier_phone_number: $supplier_phone_number
+      supplier_email: $supplier_email
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_PRODUCT = gql`
+  mutation deleteProduct($id: ID!) {
+    deleteProduct(id: $id)
+  }
+`;
+
+export const GENERATE_REPORT = gql`
+  mutation generateReport(
+    $account_id: ID!
+    $begin_date: String!
+    $end_date: String!
+  ) {
+    generateReport(
+      account_id: $account_id
+      begin_date: $begin_date
+      end_date: $end_date
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_REPORT = gql`
+  mutation deleteReport($statement_uid: String!) {
+    deleteReport(statement_uid: $statement_uid)
   }
 `;
