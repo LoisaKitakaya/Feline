@@ -76,20 +76,6 @@ const Drawer = () => {
         </li>
         <li className="my-2"></li>
         <li>
-          <Link to="/inventory" className="tooltip">
-            <i className="p-4 text-3xl bi bi-box-seam"></i>
-            <span className="tooltip-text">Inventory</span>
-          </Link>
-        </li>
-        <li className="my-2"></li>
-        <li>
-          <Link to="/employees" className="tooltip">
-            <i className="p-4 text-3xl bi bi-people"></i>
-            <span className="tooltip-text">Employees</span>
-          </Link>
-        </li>
-        <li className="my-2"></li>
-        <li>
           <Link to="/reports" className="tooltip">
             <i className="p-4 text-3xl bi bi-heart-pulse"></i>
             <span className="tooltip-text">Reports</span>
