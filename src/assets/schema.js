@@ -220,6 +220,31 @@ export const GET_ALL_PRODUCTS = gql`
   }
 `;
 
+export const GET_ALL_REPORTS = gql`
+  query getAllReports($account_id: ID!) {
+    getAllReports(account_id: $account_id) {
+      id
+      statement_uid
+      begin_date
+      end_date
+    }
+  }
+`;
+
+export const GET_REPORT = gql`
+  query getReport($statement_uid: String!) {
+    getReport(statement_uid: $statement_uid) {
+      id
+      statement_uid
+      amount
+      item {
+        name
+        is_income
+      }
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`
@@ -527,5 +552,27 @@ export const UPDATE_PRODUCT = gql`
 export const DELETE_PRODUCT = gql`
   mutation deleteProduct($id: ID!) {
     deleteProduct(id: $id)
+  }
+`;
+
+export const GENERATE_REPORT = gql`
+  mutation generateReport(
+    $account_id: ID!
+    $begin_date: String!
+    $end_date: String!
+  ) {
+    generateReport(
+      account_id: $account_id
+      begin_date: $begin_date
+      end_date: $end_date
+    ) {
+      id
+    }
+  }
+`;
+
+export const DELETE_REPORT = gql`
+  mutation deleteReport($statement_uid: String!) {
+    deleteReport(statement_uid: $statement_uid)
   }
 `;
