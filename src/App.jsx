@@ -18,6 +18,7 @@ import Targets from "./pages/Targets";
 import Target from "./pages/Target";
 import Reports from "./pages/Reports";
 import Report from "./pages/Report";
+import Profile from "./pages/Profile";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -81,6 +82,7 @@ const App = () => {
           <Route path="/target/:id" element={<Target />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/report/:statement_uid" element={<Report />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         {/* app content */}
 
