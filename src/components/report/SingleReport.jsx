@@ -1,9 +1,13 @@
 import { useQuery } from "@apollo/client";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import ReportDocument from "./ReportDocument";
 import { GET_REPORT } from "../../assets/schema";
+import ButtonSpinner from "../spinner/ButtonSpinner";
+import { PDFDownloadLink } from "@react-pdf/renderer";
 import ComponentSpinner from "../spinner/ComponentSpinner";
 import { setNewNotification } from "../../redux/reducers/toast";
+import ReportTicker from "./ReportTicker";
 
 const SingleReport = () => {
   const { statement_uid } = useParams();
@@ -30,24 +34,26 @@ const SingleReport = () => {
             <h4 className="text-xl font-semibold mr-4">
               Statement UID: {statement_uid}
             </h4>
-            <button className="rounded-md border py-2 px-4">
-              <i className="bi bi-download"></i> Download
-            </button>
+            <PDFDownloadLink
+              className="rounded-md border py-2 px-4"
+              document={<ReportDocument reportData={data.getReport} />}
+              fileName="cash flow summary report"
+            >
+              {({ loading }) =>
+                loading ? (
+                  <>
+                    <ButtonSpinner />
+                  </>
+                ) : (
+                  <>
+                    <i className="bi bi-download"></i> Download
+                  </>
+                )
+              }
+            </PDFDownloadLink>
           </div>
-          {data.getReport.map((statement, index) => {
-            const records = (
-              <div className="py-4 border-b" key={statement.id}>
-                <p>
-                  {index + 1} . Activity: {statement.item.name} | Total cost:{" "}
-                  {statement.item.is_income
-                    ? statement.amount
-                    : `-${statement.amount}`}
-                </p>
-              </div>
-            );
-
-            return records;
-          })}
+          <ReportDocument reportData={data.getReport} />
+          <ReportTicker reportData={data.getReport} />
         </>
       )}
     </>
