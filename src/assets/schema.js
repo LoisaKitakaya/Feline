@@ -245,6 +245,22 @@ export const GET_REPORT = gql`
   }
 `;
 
+export const GET_PROFILE = gql`
+  query getProfile {
+    getProfile {
+      id
+      user {
+        id
+        username
+        first_name
+        last_name
+        is_active
+      }
+      phone_number
+    }
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`
@@ -574,5 +590,17 @@ export const GENERATE_REPORT = gql`
 export const DELETE_REPORT = gql`
   mutation deleteReport($statement_uid: String!) {
     deleteReport(statement_uid: $statement_uid)
+  }
+`;
+
+export const UPDATE_USER = gql`
+  mutation updateUser(
+    $email: String!
+    $first_name: String!
+    $last_name: String!
+  ) {
+    updateUser(email: $email, first_name: $first_name, last_name: $last_name) {
+      id
+    }
   }
 `;

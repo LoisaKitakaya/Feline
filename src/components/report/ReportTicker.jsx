@@ -36,7 +36,7 @@ const ReportTicker = ({ reportData }) => {
       {cashFlowSums.map((flow, index) => {
         const cashFlow = (
           <span key={index} className="mx-2 font-semibold">
-            {flow.item.is_income ? <>Total inflows:</> : <>Total outflows:</>}{" "}
+            {flow.item.is_income ? "Total inflows:" : "Total outflows:"}{" "}
             {flow.amount}{" "}
             {flow.item.is_income ? (
               <i class="bi bi-caret-up-fill text-green-600 text-lg"></i>
