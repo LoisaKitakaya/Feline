@@ -261,6 +261,12 @@ export const GET_PROFILE = gql`
   }
 `;
 
+export const GENERATE_QR_CODE = gql`
+  query generateQRCode {
+    generateQRCode
+  }
+`;
+
 // Mutations
 
 export const CREATE_USER = gql`
@@ -602,5 +608,11 @@ export const UPDATE_USER = gql`
     updateUser(email: $email, first_name: $first_name, last_name: $last_name) {
       id
     }
+  }
+`;
+
+export const VERIFY_OTP = gql`
+  mutation verifyOTP($otp: String!) {
+    verifyOTP(otp: $otp)
   }
 `;

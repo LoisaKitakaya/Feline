@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Security from "../components/profile/Security";
 import UserProfile from "../components/profile/UserProfile";
 
 const Profile = () => {
@@ -29,6 +30,7 @@ const Profile = () => {
         </p>
       </div>
       <UserProfile />
+      <Security />
     </div>
   );
 };
