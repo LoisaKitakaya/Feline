@@ -12,7 +12,7 @@ const Reports = () => {
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  const checkAuth = (isLoggedIn) => {
+  const checkAuth = () => {
     if (isLoggedIn) {
       return;
     } else {
@@ -21,7 +21,7 @@ const Reports = () => {
   };
 
   useEffect(() => {
-    checkAuth(isLoggedIn);
+    checkAuth();
   }, [isLoggedIn]);
 
   return (

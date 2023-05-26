@@ -8,7 +8,7 @@ const Budget = () => {
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  const checkAuth = (isLoggedIn) => {
+  const checkAuth = () => {
     if (isLoggedIn) {
       return;
     } else {
@@ -17,7 +17,7 @@ const Budget = () => {
   };
 
   useEffect(() => {
-    checkAuth(isLoggedIn);
+    checkAuth();
   }, [isLoggedIn]);
 
   return (
