@@ -4,6 +4,7 @@ import { removeItemFromCache } from "../../main";
 import { UPDATE_USER } from "../../assets/schema";
 import { signOut } from "../../redux/reducers/auth";
 import ButtonSpinner from "../spinner/ButtonSpinner";
+import { revokeLogin } from "../../redux/reducers/2fa";
 import {
   setNewNotification,
   clearOldNotification,
@@ -17,6 +18,7 @@ const UpdateProfile = ({ id }) => {
   const postUpdateAction = (user_id) => {
     removeItemFromCache("User", user_id);
     dispatch(signOut());
+    dispatch(revokeLogin());
   };
 
   if (data) {

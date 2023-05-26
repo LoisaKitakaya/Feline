@@ -30,7 +30,7 @@ const Account = () => {
     if (isLoggedIn && canProceed) {
       return;
     } else {
-      navigate("/confirm");
+      navigate("/signin");
     }
   };
 
