@@ -10,10 +10,6 @@ const OTP = () => {
 
   const { loading, data, error } = useQuery(GENERATE_QR_CODE);
 
-  if (data) {
-    console.log(data);
-  }
-
   if (loading) return <ComponentSpinner />;
 
   if (error) {
