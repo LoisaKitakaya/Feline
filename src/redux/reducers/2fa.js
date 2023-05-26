@@ -23,7 +23,7 @@ export const securityReducer = createSlice({
       state.twoFactorAuthentication = false;
       state.oneTimePassword = "Unverified";
     },
-    verifyOTP: (state, action) => {
+    verifyOtpCode: (state, action) => {
       if (action.payload.verifyOTP === "Your account has been verified") {
         localStorage.setItem("OTP_Verified", "Verified");
 
@@ -37,5 +37,5 @@ export const securityReducer = createSlice({
   },
 });
 
-export const { enable2FA, disable2FA, verifyOTP } = securityReducer.actions;
+export const { enable2FA, disable2FA, verifyOtpCode } = securityReducer.actions;
 export default securityReducer.reducer;

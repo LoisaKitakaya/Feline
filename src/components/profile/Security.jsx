@@ -1,8 +1,14 @@
-import { useState } from "react";
 import OTP from "./OTP";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { enable2FA, disable2FA } from "../../redux/reducers/2fa";
 
 const Security = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const dispatch = useDispatch();
+
+  const twoFactorAuthentication = useSelector(
+    (state) => state.security.twoFactorAuthentication
+  );
 
   return (
     <>
@@ -10,25 +16,35 @@ const Security = () => {
         <p className="text-lg font-semibold">
           Two Factor Authentication (2FA) __ One Time Password (OTP)
         </p>
-        <button
-          className="rounded-md border py-2 px-4"
-          onClick={() => setIsVisible(!isVisible)}
-        >
-          {isVisible ? (
-            <button className="text-red-600">
-              <i className="bi bi-unlock-fill"></i> Disable Two Factor
-              Authentication
-            </button>
-          ) : (
-            <button className="text-green-600">
-              <i className="bi bi-lock-fill"></i> Enable Two Factor
-              Authentication
-            </button>
-          )}
-        </button>
+        {twoFactorAuthentication ? (
+          <button
+            className="rounded-md border py-2 px-4 text-red-600"
+            onClick={() => {
+              const check = confirm(
+                "Are you sure you want to disable Two Factor Authentication?\nIt is not recommended."
+              );
+
+              if (check) {
+                dispatch(disable2FA());
+              } else {
+                return;
+              }
+            }}
+          >
+            <i className="bi bi-unlock-fill"></i> Disable Two Factor
+            Authentication
+          </button>
+        ) : (
+          <button
+            className="rounded-md border py-2 px-4 text-green-600"
+            onClick={() => dispatch(enable2FA())}
+          >
+            <i className="bi bi-lock-fill"></i> Enable Two Factor Authentication
+          </button>
+        )}
       </div>
       <hr className="my-4" />
-      {isVisible ? (
+      {twoFactorAuthentication ? (
         <OTP />
       ) : (
         <div>

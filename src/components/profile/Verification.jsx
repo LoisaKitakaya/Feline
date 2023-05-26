@@ -2,17 +2,19 @@ import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { VERIFY_OTP } from "../../assets/schema";
 import ButtonSpinner from "../spinner/ButtonSpinner";
+import { verifyOtpCode } from "../../redux/reducers/2fa";
 import {
   setNewNotification,
   clearOldNotification,
 } from "../../redux/reducers/toast";
 
-const VerifyOTP = () => {
+const Verification = () => {
   const dispatch = useDispatch();
 
   const [verifyOTP, { loading, data, error }] = useMutation(VERIFY_OTP);
 
   if (data) {
+    dispatch(verifyOtpCode(data));
     dispatch(
       setNewNotification({
         type: "success",
@@ -62,4 +64,4 @@ const VerifyOTP = () => {
   );
 };
 
-export default VerifyOTP;
+export default Verification;
