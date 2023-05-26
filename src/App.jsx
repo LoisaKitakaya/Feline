@@ -19,6 +19,7 @@ import Target from "./pages/Target";
 import Reports from "./pages/Reports";
 import Report from "./pages/Report";
 import Profile from "./pages/Profile";
+import Confirm from "./pages/Confirm";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -83,6 +84,7 @@ const App = () => {
           <Route path="/reports" element={<Reports />} />
           <Route path="/report/:statement_uid" element={<Report />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/confirm" element={<Confirm />} />
         </Routes>
         {/* app content */}
 
