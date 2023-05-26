@@ -3,11 +3,11 @@ import { signIn } from "../redux/reducers/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { AUTHENTICATE_USER } from "../assets/schema";
 import { useDispatch, useSelector } from "react-redux";
+import ButtonSpinner from "../components/spinner/ButtonSpinner";
 import {
   setNewNotification,
   clearOldNotification,
 } from "../redux/reducers/toast";
-import ButtonSpinner from "../components/spinner/ButtonSpinner";
 
 const Signin = () => {
   const dispatch = useDispatch();

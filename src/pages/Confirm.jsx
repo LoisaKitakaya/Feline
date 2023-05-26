@@ -2,11 +2,12 @@ import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { VERIFY_OTP } from "../assets/schema";
 import { useNavigate } from "react-router-dom";
+import { confirmLogin } from "../redux/reducers/2fa";
+import ButtonSpinner from "../components/spinner/ButtonSpinner";
 import {
   setNewNotification,
   clearOldNotification,
 } from "../redux/reducers/toast";
-import ButtonSpinner from "../components/spinner/ButtonSpinner";
 
 const Confirm = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const Confirm = () => {
   const [verifyOTP, { loading, data, error }] = useMutation(VERIFY_OTP);
 
   if (data) {
+    dispatch(confirmLogin());
     dispatch(
       setNewNotification({ type: "success", message: "Login successful" })
     );
@@ -52,9 +54,7 @@ const Confirm = () => {
             e.target.reset();
           }}
         >
-          <p className="text-lg text-center mb-2">
-            Confirm that it is you.
-          </p>
+          <p className="text-lg text-center mb-2">Confirm that it is you.</p>
           <div className="mb-4">
             <label className="block">
               <span>OTP code</span>

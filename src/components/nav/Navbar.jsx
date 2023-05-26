@@ -1,6 +1,7 @@
 import AppTheme from "../themes/AppTheme";
 import { useEffect, useState } from "react";
 import { signOut } from "../../redux/reducers/auth";
+import { revokeLogin } from "../../redux/reducers/2fa";
 import { useDispatch, useSelector } from "react-redux";
 import { openDrawer, closeDrawer } from "../../redux/reducers/drawer";
 
@@ -52,7 +53,10 @@ const Navbar = () => {
           <>
             <button
               className="border py-2 px-4 rounded-md"
-              onClick={() => dispatch(signOut())}
+              onClick={() => {
+                dispatch(signOut());
+                dispatch(revokeLogin());
+              }}
             >
               Log out
             </button>

@@ -12,6 +12,16 @@ const Targets = () => {
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
+  const canProceed = useSelector((state) => state.security.canProceed);
+
+  const twoFactorAuthentication = useSelector(
+    (state) => state.security.twoFactorAuthentication
+  );
+
+  const oneTimePassword = useSelector(
+    (state) => state.security.oneTimePassword
+  );
+
   const checkAuth = () => {
     if (isLoggedIn) {
       return;
@@ -20,8 +30,24 @@ const Targets = () => {
     }
   };
 
+  const checkAuth2 = () => {
+    if (isLoggedIn && canProceed) {
+      return;
+    } else {
+      navigate("/confirm");
+    }
+  };
+
+  const handleAuth = () => {
+    if (twoFactorAuthentication && oneTimePassword) {
+      checkAuth2();
+    } else {
+      checkAuth();
+    }
+  };
+
   useEffect(() => {
-    checkAuth();
+    handleAuth();
   }, [isLoggedIn]);
 
   return (
