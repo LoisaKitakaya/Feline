@@ -46,8 +46,8 @@ const TransactionCategoriesTotals = ({ filteredCategories }) => {
         label: "Category",
         data: filteredCategories.map((category) => category.categoryAmount),
         fill: false,
-        borderColor: "rgba(75,192,192,1)",
-        backgroundColor: 'rgba(5, 150, 105, 0.5)',
+        borderColor: "rgb(6, 182, 212)",
+        backgroundColor: "rgba(6, 182, 212, 0.5)",
       },
     ],
   };

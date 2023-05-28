@@ -47,8 +47,8 @@ const ReceivableTrends = ({ receivables }) => {
       {
         label: "Receivables",
         data: receivables,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "rgb(34, 197, 94)",
+        backgroundColor: "rgba(34, 197, 94, 0.5)",
       },
     ],
   };

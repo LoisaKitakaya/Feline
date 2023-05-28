@@ -48,8 +48,8 @@ const TransactionSubCategoriesTotals = ({ filteredSubcategories }) => {
           (category) => category.subcategoryAmount
         ),
         fill: false,
-        borderColor: "rgba(75,192,192,1)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        borderColor: "rgb(99, 102, 241)",
+        backgroundColor: "rgba(99, 102, 241, 0.5)",
       },
     ],
   };

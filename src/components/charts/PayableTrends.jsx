@@ -47,8 +47,8 @@ const PayableTrends = ({ payables }) => {
       {
         label: "Payables",
         data: payables,
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        borderColor: "rgb(239, 68, 68)",
+        backgroundColor: "rgba(239, 68, 68, 0.5)",
       },
     ],
   };
