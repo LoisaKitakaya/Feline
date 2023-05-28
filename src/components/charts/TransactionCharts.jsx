@@ -1,8 +1,9 @@
 import { useMemo } from "react";
+import PayableTrends from "./PayableTrends";
+import ReceivableTrends from "./RecivableTrends";
+import PayablesVsReceivablesCount from "./PayablesVsReceivablesCount";
 import TransactionCategoriesTotals from "./TransactionCategoriesTotals";
 import TransactionSubCategoriesTotals from "./TransactionSubCategoriesTotals";
-import ReceivableTrends from "./RecivableTrends";
-import PayableTrends from "./PayableTrends";
 
 const TransactionCharts = ({ chartData }) => {
   // filtered categories
@@ -124,6 +125,13 @@ const TransactionCharts = ({ chartData }) => {
         <ReceivableTrends receivables={receivables} />
         <div className="mx-2"></div>
         <PayableTrends payables={payables} />
+      </div>
+      <div className="flex items-center justify-between mb-4">
+        <PayablesVsReceivablesCount
+          receivablesCount={receivablesCount}
+          payablesCount={payablesCount}
+        />
+        <div className="mx-2"></div>
       </div>
     </>
   );
