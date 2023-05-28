@@ -4,6 +4,8 @@ import ReceivableTrends from "./RecivableTrends";
 import PayablesVsReceivablesCount from "./PayablesVsReceivablesCount";
 import TransactionCategoriesTotals from "./TransactionCategoriesTotals";
 import TransactionSubCategoriesTotals from "./TransactionSubCategoriesTotals";
+import PayablesVsReceivablesTotals from "./PayablesVsReceivablesTotals";
+import TotalBalance from "./TotalBalance";
 
 const TransactionCharts = ({ chartData }) => {
   // filtered categories
@@ -126,12 +128,17 @@ const TransactionCharts = ({ chartData }) => {
         <div className="mx-2"></div>
         <PayableTrends payables={payables} />
       </div>
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex justify-between mb-4">
         <PayablesVsReceivablesCount
           receivablesCount={receivablesCount}
           payablesCount={payablesCount}
         />
         <div className="mx-2"></div>
+        <PayablesVsReceivablesTotals
+          totalReceivables={totalReceivables}
+          totalPayables={totalPayables}
+          totalBalance={<TotalBalance />}
+        />
       </div>
     </>
   );
