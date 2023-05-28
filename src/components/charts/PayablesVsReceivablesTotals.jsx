@@ -15,14 +15,20 @@ const PayablesVsReceivablesTotals = ({
           Total Account Balance: {totalBalance}
         </span>
         <br />
-        <span className=" text-xl mb-2">
-          Total Receivable: {totalReceivables}{" "}
-          <i className="bi bi-caret-up-fill text-green-600 text-lg"></i>
-        </span>
-        <span className=" text-xl">
-          Total Payable: {totalPayables}{" "}
-          <i className="bi bi-caret-down-fill text-red-600 text-lg"></i>
-        </span>
+        <div className="flex items-center mb-2">
+          <span className=" text-xl">
+            Total Receivable: {totalReceivables.toLocaleString()}
+          </span>
+          <div className="mx-1"></div>
+          <i className="bi bi-caret-up-fill text-green-600 text-2xl"></i>
+        </div>
+        <div className="flex items-center">
+          <span className=" text-xl">
+            Total Payable: {totalPayables.toLocaleString()}
+          </span>
+          <div className="mx-1"></div>
+          <i className="bi bi-caret-down-fill text-red-600 text-2xl"></i>
+        </div>
       </div>
     </div>
   );

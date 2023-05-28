@@ -67,7 +67,7 @@ const TransactionCharts = ({ chartData }) => {
     );
     return receivableTransactions.map(
       (transaction) => transaction.transaction_amount
-    );
+    ).reverse();
   }, [chartData]);
 
   //   all payables
@@ -77,7 +77,7 @@ const TransactionCharts = ({ chartData }) => {
     );
     return payableTransactions.map(
       (transaction) => transaction.transaction_amount
-    );
+    ).reverse();
   }, [chartData]);
 
   //   no of receivables
