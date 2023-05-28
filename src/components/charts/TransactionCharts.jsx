@@ -1,11 +1,11 @@
 import { useMemo } from "react";
+import TotalBalance from "./TotalBalance";
 import PayableTrends from "./PayableTrends";
 import ReceivableTrends from "./RecivableTrends";
 import PayablesVsReceivablesCount from "./PayablesVsReceivablesCount";
 import TransactionCategoriesTotals from "./TransactionCategoriesTotals";
-import TransactionSubCategoriesTotals from "./TransactionSubCategoriesTotals";
 import PayablesVsReceivablesTotals from "./PayablesVsReceivablesTotals";
-import TotalBalance from "./TotalBalance";
+import TransactionSubCategoriesTotals from "./TransactionSubCategoriesTotals";
 
 const TransactionCharts = ({ chartData }) => {
   // filtered categories
