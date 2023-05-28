@@ -23,8 +23,8 @@ const PayablesVsReceivablesCount = ({ receivablesCount, payablesCount }) => {
       {
         label: "Count of transactions",
         data: [payablesCount, receivablesCount],
-        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
-        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
+        borderColor: ["rgba(249, 115, 22, 1)", "rgba(14, 165, 233, 1)"],
+        backgroundColor: ["rgba(249, 115, 22, 0.2)", "rgba(14, 165, 233, 0.2)"],
         borderWidth: 1,
       },
     ],
