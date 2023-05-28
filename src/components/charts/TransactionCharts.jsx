@@ -1,6 +1,8 @@
 import { useMemo } from "react";
 import TransactionCategoriesTotals from "./TransactionCategoriesTotals";
 import TransactionSubCategoriesTotals from "./TransactionSubCategoriesTotals";
+import ReceivableTrends from "./RecivableTrends";
+import PayableTrends from "./PayableTrends";
 
 const TransactionCharts = ({ chartData }) => {
   // filtered categories
@@ -117,6 +119,11 @@ const TransactionCharts = ({ chartData }) => {
         <TransactionSubCategoriesTotals
           filteredSubcategories={filteredSubcategories}
         />
+      </div>
+      <div className="flex items-center justify-between mb-4">
+        <ReceivableTrends receivables={receivables} />
+        <div className="mx-2"></div>
+        <PayableTrends payables={payables} />
       </div>
     </>
   );
