@@ -30,7 +30,7 @@ const ReportList = ({ account_id }) => {
                 to={`/report/${statement.statement_uid}`}
                 key={statement.id}
               >
-                <div className="border rounded-md p-4">
+                <div className="border rounded-md p-4 mb-4">
                   <span>Statement UID: {statement.statement_uid}</span>
                   <hr />
                   <br />
