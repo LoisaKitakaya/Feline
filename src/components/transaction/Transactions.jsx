@@ -10,6 +10,7 @@ import { setNewNotification } from "../../redux/reducers/toast";
 import { GET_ALL_ACCOUNT_TRANSACTIONS } from "../../assets/schema";
 import UpdateTransaction from "./UpdateTransaction";
 import DeleteTransaction from "./DeleteTransaction";
+import TransactionCharts from "../charts/TransactionCharts";
 
 const Transactions = ({ account_id }) => {
   const dispatch = useDispatch();
@@ -83,6 +84,8 @@ const Transactions = ({ account_id }) => {
         tableData={data.getAllTransactions}
         setSelectedRow={setSelectedRow}
       />
+      <hr className="my-4" />
+      <TransactionCharts chartData={data.getAllTransactions} />
 
       {/* modals */}
       <Modal

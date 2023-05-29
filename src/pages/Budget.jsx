@@ -8,7 +8,17 @@ const Budget = () => {
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  const checkAuth = (isLoggedIn) => {
+  const canProceed = useSelector((state) => state.security.canProceed);
+
+  const twoFactorAuthentication = useSelector(
+    (state) => state.security.twoFactorAuthentication
+  );
+
+  const oneTimePassword = useSelector(
+    (state) => state.security.oneTimePassword
+  );
+
+  const checkAuth = () => {
     if (isLoggedIn) {
       return;
     } else {
@@ -16,8 +26,24 @@ const Budget = () => {
     }
   };
 
+  const checkAuth2 = () => {
+    if (isLoggedIn && canProceed) {
+      return;
+    } else {
+      navigate("/signin");
+    }
+  };
+
+  const handleAuth = () => {
+    if (twoFactorAuthentication && oneTimePassword) {
+      checkAuth2();
+    } else {
+      checkAuth();
+    }
+  };
+
   useEffect(() => {
-    checkAuth(isLoggedIn);
+    handleAuth();
   }, [isLoggedIn]);
 
   return (

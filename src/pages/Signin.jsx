@@ -1,27 +1,44 @@
-import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { signIn } from "../redux/reducers/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { AUTHENTICATE_USER } from "../assets/schema";
+import { useDispatch, useSelector } from "react-redux";
+import ButtonSpinner from "../components/spinner/ButtonSpinner";
 import {
   setNewNotification,
   clearOldNotification,
 } from "../redux/reducers/toast";
-import ButtonSpinner from "../components/spinner/ButtonSpinner";
 
 const Signin = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
+  const twoFactorAuthentication = useSelector(
+    (state) => state.security.twoFactorAuthentication
+  );
+
+  const oneTimePassword = useSelector(
+    (state) => state.security.oneTimePassword
+  );
+
   const [tokenAuth, { loading, data, error }] = useMutation(AUTHENTICATE_USER);
 
+  const preSigninAction = () => {
+    if (twoFactorAuthentication && oneTimePassword) {
+      dispatch(signIn({ token: data.tokenAuth.token }));
+      navigate("/confirm");
+    } else {
+      dispatch(
+        setNewNotification({ type: "success", message: "Login successful" })
+      );
+      dispatch(signIn({ token: data.tokenAuth.token }));
+      navigate("/");
+    }
+  };
+
   if (data) {
-    dispatch(
-      setNewNotification({ type: "success", message: "Login successful" })
-    );
-    dispatch(signIn({ token: data.tokenAuth.token }));
-    navigate("/");
+    preSigninAction();
   }
 
   if (error) {
@@ -88,7 +105,11 @@ const Signin = () => {
       </div>
       <div className="mt-8 text-center">
         <p>
-          Don't yet have an account? <Link to="/signup">Sign up here</Link>.
+          Don't yet have an account?{" "}
+          <Link to="/signup" className="underline">
+            Sign up here
+          </Link>
+          .
         </p>
       </div>
     </div>

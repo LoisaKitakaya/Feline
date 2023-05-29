@@ -2,11 +2,11 @@ import { useDispatch } from "react-redux";
 import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../assets/schema";
 import { Link, useNavigate } from "react-router-dom";
+import ButtonSpinner from "../components/spinner/ButtonSpinner";
 import {
   setNewNotification,
   clearOldNotification,
 } from "../redux/reducers/toast";
-import ButtonSpinner from "../components/spinner/ButtonSpinner";
 
 const Signup = () => {
   const dispatch = useDispatch();
@@ -147,7 +147,11 @@ const Signup = () => {
       </div>
       <div className="mt-8 text-center">
         <p>
-          Already have an account? <Link to="/signin">Sign in here</Link>.
+          Already have an account?{" "}
+          <Link to="/signin" className="underline">
+            Sign in here
+          </Link>
+          .
         </p>
       </div>
     </div>

@@ -33,10 +33,17 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+const cache = new InMemoryCache();
+
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+  cache: cache,
 });
+
+export const removeItemFromCache = (type, id) => {
+  const cacheKey = cache.identify({ __typename: type, id });
+  cache.evict(cacheKey);
+};
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
